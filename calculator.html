@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="https://cdn.icon-icons.com/icons2/294/PNG/256/Calculator_31111.png">
+<title>Calculator</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .calculator {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  input {
+    width: 95%;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: 1.2em;
+    text-align: right;
+  }
+  
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+  }
+  
+  button {
+    padding: 10px;
+    font-size: 1.2em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: rgb(223, 141, 34);
+  }
+  
+  .orange {
+    background-color: #FF9F0A;
+    color: white;
+  }
+
+  .white {
+    background-color: #4e403a;
+    color: white;
+  }
+  
+  .white:hover {
+    background-color: #f0f0f0;
+  }
+  .clear {
+    background-color: #FF9F0A;
+    color: white;
+  }
+  
+  .operator {
+    background-color: #f0f0f0;
+  }
+
+  .operator:hover {
+    background-color: #4e403a;
+  }
+</style>
+
+<script>
+// Function to clear the result
+function clearResult() {
+    document.getElementById("result").value = "";
+  }
+  
+  // Function to append a number to the result
+  function appendNumber(number) {
+    document.getElementById("result").value += number;
+  }
+  
+  // Function to append an operator to the result
+  function appendOperator(operator) {
+    document.getElementById("result").value += operator;
+  }
+  
+  // Function to calculate the result
+  function calculate() {
+    var result = eval(document.getElementById("result").value);
+    document.getElementById("result").value = result;
+  }
+</script>
+
+
+</head>
+
+<body>
+<div class="calculator">
+  <input type="text" id="result" disabled>
+  <div class="buttons">
+    <button class="clear" onclick="clearResult()">C</button>
+    <button class="operator" onclick="appendNumber(7)">7</button>
+    <button class="operator" onclick="appendNumber(8)">8</button>
+    <button class="operator" onclick="appendNumber(9)">9</button>
+    <button class="orange" onclick="appendOperator('+')">+</button>
+    <button class="operator" onclick="appendNumber(4)">4</button>
+    <button class="operator" onclick="appendNumber(5)">5</button>
+    <button class="operator" onclick="appendNumber(6)">6</button>
+    <button class="orange" onclick="appendOperator('-')">-</button>
+    <button class="operator" onclick="appendNumber(1)">1</button>
+    <button class="operator" onclick="appendNumber(2)">2</button>
+    <button class="operator" onclick="appendNumber(3)">3</button>
+    <button class="orange" onclick="appendOperator('*')">*</button>
+    <button class="orange" onclick="appendOperator('/')">/</button>
+    <button class="white" onclick="appendNumber(0)">0</button>
+    <button class="white" onclick="calculate()">=</button>
+  </div>
+</div>
+</body>
+</html>
