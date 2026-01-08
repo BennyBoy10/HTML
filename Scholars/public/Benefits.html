@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=1024">
+  <meta name="description" content="Global Scholars Hub - Complete Benefits Overview of our Fully Funded Scholarship Program">
+  <title>Scholarship Benefits - Global Scholars Hub</title>
+
+<!-- Font Awesome & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  
+  <style>
+:root {
+  --primary: #6A5ACD;
+  --primary-light: #7B68EE;
+  --primary-dark: #483D8B;
+  --secondary: #9370DB;
+  --accent: #00BFFF;
+  --text-dark: #333;
+  --text-light: #666;
+  --background: #f8f9fa;
+  --white: #ffffff;
+  --card-bg: #ffffff;
+  --gradient: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+  --gradient-accent: linear-gradient(135deg, var(--primary-light), var(--accent));
+  --gradient-light: linear-gradient(135deg, rgba(106, 90, 205, 0.08), rgba(0, 191, 255, 0.05));
+  --border-radius: 16px;
+  --shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.dark-theme {
+  --text-dark: #f0f0f0;
+  --text-light: #bbb;
+  --background: #121212;
+  --card-bg: #1e1e1e;
+  --shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.35);
+  --gradient-light: linear-gradient(135deg, rgba(106, 90, 205, 0.15), rgba(0, 191, 255, 0.08));
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header - Consistent with About page */
+header {
+  background: var(--gradient);
+  color: var(--white);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+header {
+  padding: 12px 0;
+}
+  
+.container {
+  padding: 0 15px;
+}
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+.logo i {
+  margin-right: 8px;
+  font-size: 26px;
+}
+
+@media (max-width: 768px) {
+.logo {
+  font-size: 20px;
+}
+
+.logo i {
+  font-size: 22px;
+  margin-right: 6px;
+}
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.theme-toggle-header {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  width: 40px;
+  height: 22px;
+  border-radius: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0 3px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-header:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.theme-toggle-header span {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.dark-theme .theme-toggle-header {
+  background: rgba(0, 191, 255, 0.2);
+  justify-content: flex-end;
+}
+
+.dark-theme .theme-toggle-header span {
+  background: var(--accent);
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--accent);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background: #0099CC;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 191, 255, 0.25);
+}
+
+@media (max-width: 768px) {
+.btn {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+}
+
+/* Hero Section */
+.hero-benefits {
+  padding: 100px 0 70px;
+  background: var(--gradient);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.hero-benefits {
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("Images/Img1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+  /*  background-position: center; */
+}
+
+.hero-benefits::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.hero-benefits .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content-benefits {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-content-benefits h1 {
+  font-size: 3.2rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.hero-content-benefits p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  margin-bottom: 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+.hero-benefits {
+  padding: 80px 0 50px;
+}
+  
+.hero-content-benefits h1 {
+  font-size: 2.2rem;
+}
+  
+.hero-content-benefits p {
+  font-size: 1.1rem;
+  padding: 0 10px;
+}
+}
+
+/* Benefits Overview */
+.benefits-overview {
+  padding: 80px 0 60px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header h2 {
+  font-size: 2.8rem;
+  color: var(--primary-dark);
+  margin-bottom: 15px;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.dark-theme .section-header h2 {
+  color: var(--accent);
+}
+
+.section-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--gradient);
+  border-radius: 2px;
+}
+
+.section-header p {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  max-width: 850px;
+  margin: 30px auto 0;
+}
+
+/* Enhanced Benefits Showcase */
+.benefits-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 35px;
+  margin-bottom: 80px;
+}
+
+.benefit-card-large {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 40px 35px;
+  box-shadow: var(--shadow);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(106, 90, 205, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.benefit-card-large::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--gradient);
+}
+
+.benefit-card-large:hover {
+  transform: translateY(-12px);
+  box-shadow: var(--shadow-hover);
+}
+
+.benefit-icon-large {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  background: var(--gradient-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: var(--primary);
+  transition: all 0.3s ease;
+}
+
+.benefit-card-large:hover .benefit-icon-large {
+  background: var(--gradient);
+  color: white;
+  transform: scale(1.05) rotate(5deg);
+}
+
+.benefit-card-large h3 {
+  font-size: 1.6rem;
+  color: var(--primary-dark);
+  margin-bottom: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.dark-theme .benefit-card-large h3 {
+  color: var(--accent);
+}
+
+.benefit-card-large p {
+  color: var(--text-light);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  flex-grow: 1;
+}
+
+.benefit-details {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(106, 90, 205, 0.1);
+}
+
+.benefit-details ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.benefit-details li {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.benefit-details li i {
+  color: var(--primary);
+  margin-right: 10px;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+/* Countries Section - Enhanced */
+.countries-showcase {
+  padding: 70px 0 90px;
+  background: var(--gradient-light);
+  border-radius: 20px;
+  position: relative;
+  margin-bottom: 80px;
+  overflow: hidden;
+}
+
+.countries-showcase::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--gradient);
+}
+
+.countries-intro {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 50px;
+}
+
+.countries-intro h3 {
+  font-size: 2.4rem;
+  color: var(--primary-dark);
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.dark-theme .countries-intro h3 {
+  color: var(--accent);
+}
+
+.countries-intro p {
+  font-size: 1.15rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.countries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  padding: 0 25px;
+}
+
+.country-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 30px 25px;
+  box-shadow: var(--shadow);
+  transition: all 0.4s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(106, 90, 205, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.country-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary-light);
+}
+
+.country-flag-large {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.country-card:hover .country-flag-large {
+  transform: scale(1.1);
+}
+
+.country-card h4 {
+  font-size: 1.4rem;
+  color: var(--primary-dark);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.dark-theme .country-card h4 {
+  color: var(--accent);
+}
+
+.country-card p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.country-highlight {
+  display: inline-block;
+  background: rgba(106, 90, 205, 0.1);
+  color: var(--primary);
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.dark-theme .country-highlight {
+  background: rgba(106, 90, 205, 0.25);
+}
+
+/* Value Proposition Section */
+.value-proposition {
+  padding: 70px 0;
+}
+
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
+}
+
+.value-item {
+  text-align: center;
+  padding: 35px 30px;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(106, 90, 205, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.value-item:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary-light);
+}
+
+.value-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--gradient);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+}
+
+.value-item:hover .value-icon {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.value-item h4 {
+  font-size: 1.5rem;
+  color: var(--primary-dark);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.dark-theme .value-item h4 {
+  color: var(--accent);
+}
+
+.value-item p {
+  color: var(--text-light);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 80px 0;
+  background: var(--gradient);
+  color: white;
+  text-align: center;
+  border-radius: 20px;
+  margin: 40px 0 80px;
+  position: relative;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="rgba(255,255,255,0.05)" width="100" height="100"/></svg>');
+  z-index: 0;
+}
+
+.cta-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-section h2 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.cta-section p {
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+.cta-section {
+  padding: 60px 0;
+  margin: 30px 0 60px;
+}
+  
+.cta-section h2 {
+  font-size: 2.2rem;
+}
+  
+.cta-buttons {
+  flex-direction: column;
+  align-items: center;
+}
+}
+
+/* Footer - Consistent with About page */
+  footer {
+  background: var(--primary-dark);
+  color: var(--white);
+  padding: 60px 0 30px;
+  margin-top: 30px;
+}
+
+.dark-theme footer {
+  background: #362a75;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.footer-column h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: var(--accent);
+}
+
+.footer-column p, .footer-column a {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 8px;
+  display: block;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.footer-column a:hover {
+  color: var(--accent);
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--gradient);
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 4px 15px rgba(106, 90, 205, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 6px 20px rgba(106, 90, 205, 0.4);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+  to {
+  opacity: 1;
+  transform: translateY(0);
+}
+}
+
+@keyframes float {
+  0%, 100% {
+  transform: translateY(0);
+}
+  50% {
+  transform: translateY(-15px);
+}
+}
+
+.fade-in {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+.benefits-showcase, .value-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+}
+
+@media (max-width: 768px) {
+.benefits-showcase, .value-grid {
+  grid-template-columns: 1fr;
+}
+  
+.countries-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+  
+.section-header h2 {
+  font-size: 2.2rem;
+}
+  
+.section-header p {
+  font-size: 1.1rem;
+}
+}
+
+@media (max-width: 480px) {
+.countries-grid {
+  grid-template-columns: 1fr;
+}
+  
+.benefit-card-large, .country-card, .value-item {
+  padding: 30px 25px;
+}
+  
+.hero-content-benefits h1 {
+  font-size: 1.8rem;
+}
+}
+  </style>
+</head>
+<body>
+<!-- Header - Consistent with About page -->
+  <header>
+  <div class="container">
+<nav>
+<a href="../" class="logo">
+<i class="fas fa-graduation-cap"></i>
+<span>Global Scholars Hub</span>
+</a>
+
+  <div class="header-right">
+<button class="theme-toggle-header" id="themeToggleHeader">
+<span></span>
+</button>
+<a href="Signup" class="btn">Apply Now - Free Registration</a>
+  </div>
+</nav>
+  </div>
+  </header>
+
+<!-- Hero Section -->
+  <section class="hero-benefits">
+  <div class="container">
+  <div class="hero-content-benefits">
+<h1>Scholarship Benefits</h1>
+<p id="scholarship-benefits-p">Global Scholars is designed to remove financial barriers that prevent talented Nigerian students from studying abroad. The program covers core academic and living costs, so scholars can focus fully on their education, personal growth, and long-term career goals.</p>
+  </div>
+  </div>
+  </section>
+
+<!-- Main Content -->
+  <main class="main-content">
+  <div class="container">
+<!-- Benefits Overview -->
+  <section class="benefits-overview" id="benefits-overview">
+  <div class="section-header fade-in">
+<h2>What We Cover</h2>
+<p id="what-we-cover-p">We cover the essential costs of studying abroad, including tuition, accommodation, living support, health coverage, and key academic expenses required throughout the program.</p>
+  </div>
+
+  <div class="benefits-showcase">
+  <div class="benefit-card-large fade-in">
+  <div class="benefit-icon-large">
+<i class="fas fa-university"></i>
+  </div>
+<h3>Complete Tuition Coverage</h3>
+<p>Your program tuition for the entire duration at our partner institutions worldwide is included. This applies to undergraduate, master's, and doctoral programs.</p>
+  <div class="benefit-details">
+<ul>
+<li><i class="fas fa-check-circle"></i> Full program tuition coverage</li>
+<li><i class="fas fa-check-circle"></i> All academic fees included</li>
+<li><i class="fas fa-check-circle"></i> Duration matched to your program</li>
+</ul>
+  </div>
+  </div>
+  
+  <div class="benefit-card-large fade-in">
+  <div class="benefit-icon-large">
+<i class="fas fa-home"></i>
+  </div>
+<h3>Accommodation Support</h3>
+<p>Secure and comfortable housing near your campus, with essential utilities and internet connectivity provided throughout your study period.</p>
+  <div class="benefit-details">
+<ul>
+<li><i class="fas fa-check-circle"></i> On-campus or nearby housing</li>
+<li><i class="fas fa-check-circle"></i> Utilities and internet included</li>
+<li><i class="fas fa-check-circle"></i> Safe, student-focused environment</li>
+</ul>
+  </div>
+  </div>
+  
+  <div class="benefit-card-large fade-in">
+  <div class="benefit-icon-large">
+<i class="fas fa-utensils"></i>
+  </div>
+<h3>Living Stipend</h3>
+<p>A monthly allowance for essential expenses including food, transportation, study materials, and personal needs, adjusted to your host country's cost of living.</p>
+  <div class="benefit-details">
+<ul>
+<li><i class="fas fa-check-circle"></i> Monthly living allowance</li>
+<li><i class="fas fa-check-circle"></i> Country-specific adjustments</li>
+<li><i class="fas fa-check-circle"></i> Covers essential daily expenses</li>
+</ul>
+  </div>
+  </div>
+  
+  <div class="benefit-card-large fade-in">
+  <div class="benefit-icon-large">
+<i class="fas fa-plane"></i>
+  </div>
+<h3>International Travel</h3>
+<p>Round-trip economy airfare from Nigeria to your host country, with airport transfers and travel coordination support upon arrival and departure.</p>
+  <div class="benefit-details">
+<ul>
+<li><i class="fas fa-check-circle"></i> Round-trip airfare</li>
+<li><i class="fas fa-check-circle"></i> Airport transfer assistance</li>
+<li><i class="fas fa-check-circle"></i> Travel coordination support</li>
+</ul>
+  </div>
+  </div>
+  
+  <div class="benefit-card-large fade-in">
+  <div class="benefit-icon-large">
+<i class="fas fa-file-contract"></i>
+  </div>
+<h3>Visa & Processing</h3>
+<p>All visa application costs, embassy fees, and document processing expenses. Our team provides guidance throughout the visa application process.</p>
+  <div class="benefit-details">
+<ul>
+<li><i class="fas fa-check-circle"></i> All visa application fees</li>
+<li><i class="fas fa-check-circle"></i> Document processing support</li>
+<li><i class="fas fa-check-circle"></i> Application guidance</li>
+</ul>
+  </div>
+  </div>
+
+  <div class="benefit-card-large fade-in">
+  <div class="benefit-icon-large">
+<i class="fas fa-heartbeat"></i>
+  </div>
+<h3>Health Insurance</h3>
+<p>Comprehensive medical coverage throughout your study period, including emergency care, routine medical needs, and mental health support services.</p>
+  <div class="benefit-details">
+<ul>
+<li><i class="fas fa-check-circle"></i> Full medical coverage</li>
+<li><i class="fas fa-check-circle"></i> Emergency and routine care</li>
+<li><i class="fas fa-check-circle"></i> Mental health support included</li>
+</ul>
+  </div>
+  </div>
+  </div>
+  </section>
+
+<!-- Countries Section -->
+  <section class="countries-showcase fade-in">
+  <div class="countries-intro">
+<h3>Global Study Destinations</h3>
+<p id="global-study-destinations-p">Scholars gain access to study opportunities in well-established education systems known for quality teaching, global recognition, and strong graduate outcomes.</p>
+  </div>
+
+  <div class="countries-grid">
+  <div class="country-card">
+  <div class="country-flag-large">🇺🇸</div>
+<h4>United States</h4>
+<p>Offers flexible study programs, strong research opportunities, and global career exposure across many fields.</p>
+  <div class="country-highlight">Global Access</div>
+  </div>
+
+  <div class="country-card">
+  <div class="country-flag-large">🇬🇧</div>
+<h4>United Kingdom</h4>
+<p>Known for structured degrees, shorter study durations, and internationally respected qualifications.</p>
+  <div class="country-highlight">Fast Degrees</div>
+  </div>
+
+  <div class="country-card">
+  <div class="country-flag-large">🇨🇦</div>
+<h4>Canada</h4>
+<p>Combines high academic standards with a safe environment and strong post-study career pathways.</p>
+  <div class="country-highlight">Student Friendly</div>
+  </div>
+
+  <div class="country-card">
+  <div class="country-flag-large">🇩🇪</div>
+<h4>Germany</h4>
+<p>Provides high-quality education with a strong focus on innovation, engineering, and research-driven learning.</p>
+  <div class="country-highlight">Low Cost</div>
+  </div>
+
+  <div class="country-card">
+  <div class="country-flag-large">🇦🇺</div>
+<h4>Australia</h4>
+<p>Offers modern education systems, flexible learning, and a balanced academic and lifestyle experience.</p>
+  <div class="country-highlight">Work Options</div>
+  </div>
+
+  <div class="country-card">
+  <div class="country-flag-large">🇫🇷</div>
+<h4>France</h4>
+<p>Delivers strong academic programs alongside rich cultural exposure and global academic recognition.</p>
+  <div class="country-highlight">Cultural Depth</div>
+  </div>
+
+  <div class="country-card">
+  <div class="country-flag-large">🇳🇱</div>
+<h4>Netherlands</h4>
+<p>Known for practical teaching methods, English-taught programs, and innovation-focused education.</p>
+  <div class="country-highlight">Modern Learning</div>
+  </div>
+
+  <div class="country-card">
+  <div class="country-flag-large">🇸🇪</div>
+<h4>Sweden</h4>
+<p>Emphasizes creativity, independent thinking, and research-led education in a supportive environment.</p>
+  <div class="country-highlight">Innovation</div>
+  </div>
+  </div>
+
+  <div class="countries-intro" style="margin-top: 50px;">
+<p id="additional-destinations-p"><strong>Plus additional destinations</strong> including Switzerland, Japan, South Korea, Singapore, and South Africa with specialized program offerings.</p>
+  </div>
+  </section>
+
+<!-- Value Proposition -->
+  <section class="value-proposition fade-in">
+  <div class="section-header">
+<h2>Beyond Financial Support</h2>
+<p id="program-extension-p">The program goes beyond funding by offering support that helps scholars succeed academically, professionally, and personally throughout their study journey.</p>
+  </div>
+
+  <div id="program-extension-section" class="value-grid">
+  <div class="value-item">
+  <div class="value-icon">
+<i class="fa-solid fa-graduation-cap"></i>
+  </div>
+<h4>Academic Guidance</h4>
+<p>Personal guidance on course selection, academic planning, and adapting to international study standards.</p>
+  </div>
+
+  <div class="value-item">
+  <div class="value-icon">
+<i class="fa-solid fa-briefcase"></i>
+  </div>
+<h4>Career & Internship Support</h4>
+<p>Access to career advice, internship guidance, and employability resources to prepare for life after graduation.</p>
+  </div>
+
+  <div class="value-item">
+  <div class="value-icon">
+<i class="fa-solid fa-heart-pulse"></i>
+  </div>
+<h4>Student Wellbeing Support</h4>
+<p>Ongoing support focused on mental health, cultural adjustment, and overall student wellbeing while abroad.</p>
+  </div>
+  </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section fade-in">
+  <div class="container">
+<h2 id="cta-h">Ready to Take the Next Step?</h2>
+<p id="cta-p">If you're looking for a clear path to studying abroad with real support, Global Scholars is a strong place to begin.</p>
+  <div class="cta-buttons">
+<a href="Signup" class="btn">Apply Now - Free Registration</a>
+<a href="About" class="btn btn-secondary">Learn About Our Program</a>
+  </div>
+  </div>
+  </section>
+  </div>
+  </main>
+
+<!-- Footer -->
+  <footer>
+  <div class="container">
+  <div class="footer-content">
+  <div class="footer-column">
+<h3>Global Scholars Hub</h3>
+<p>Empowering Nigerian students since 2012 through fully-funded international education.</p>
+  </div>
+
+  <div class="footer-column">
+<h3>Quick Links</h3>
+<a href="../">Home</a>
+<a href="About">About Program</a>
+<a href="#benefits-overview">Scholarship Benefits</a>
+<a href="FAQs">FAQs</a>
+  </div>
+
+  <div class="footer-column">
+<h3>Contact</h3>
+<p><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</p>
+<p><i class="fas fa-phone"></i> +234 810 123 4567</p>
+<p><i class="fas fa-envelope"></i> info@globalscholars.org</p>
+  </div>
+  </div>
+
+  <div class="copyright">
+<p>&copy; 2025 Global Scholars Hub. All rights reserved.</p>
+  </div>
+  </div>
+  </footer>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" id="backToTop">
+<i class="fas fa-chevron-up"></i>
+</button>
+
+  <script>
+// Theme toggle functionality
+const themeToggle = document.getElementById('themeToggleHeader');
+const body = document.body;
+const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+// Apply saved theme on load
+if (savedTheme === 'dark') {
+  body.classList.add('dark-theme');
+}
+
+// Theme toggle event
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('dark-theme');
+  const isDark = body.classList.contains('dark-theme');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
+
+// Back to top button
+const backToTopButton = document.getElementById('backToTop');
+  
+window.addEventListener('scroll', () => {
+if (window.pageYOffset > 300) {
+  backToTopButton.classList.add('visible');
+} else {
+  backToTopButton.classList.remove('visible');
+}
+});
+
+backToTopButton.addEventListener('click', () => {
+window.scrollTo({
+  top: 0,
+  behavior: 'smooth'
+});
+});
+
+// Animate elements on scroll
+const observerOptions = {
+  threshold: 0.08,
+  rootMargin: '0px 0px -40px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+if (entry.isIntersecting) {
+  entry.target.classList.add('fade-in');
+  observer.unobserve(entry.target);
+}
+});
+}, observerOptions);
+
+// Observe all elements with fade-in class
+document.querySelectorAll('.fade-in').forEach(element => {
+  observer.observe(element);
+});
+
+// Update copyright year
+document.addEventListener('DOMContentLoaded', () => {
+  const yearSpan = document.querySelector('.copyright p');
+if (yearSpan) {
+  yearSpan.innerHTML = yearSpan.innerHTML.replace('2025', new Date().getFullYear());
+}
+});
+
+// Add interactive hover effects to benefit cards
+document.querySelectorAll('.benefit-card-large').forEach(card => {
+card.addEventListener('mouseenter', function() {
+  const icon = this.querySelector('.benefit-icon-large');
+  icon.style.transform = 'scale(1.05) rotate(5deg)';
+});
+
+card.addEventListener('mouseleave', function() {
+  const icon = this.querySelector('.benefit-icon-large');
+  icon.style.transform = 'scale(1) rotate(0deg)';
+});
+});
+
+// Add country card hover animation
+document.querySelectorAll('.country-card').forEach(card => {
+card.addEventListener('mouseenter', function() {
+  const flag = this.querySelector('.country-flag-large');
+  flag.style.transform = 'scale(1.1)';
+});
+
+card.addEventListener('mouseleave', function() {
+  const flag = this.querySelector('.country-flag-large');
+  flag.style.transform = 'scale(1)';
+});
+});
+
+/*
+// Ensure buttons work correctly
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+if (this.getAttribute('href') !== '#') {
+  e.preventDefault();
+  const targetId = this.getAttribute('href').substring(1);
+  const targetElement = document.getElementById(targetId);
+
+if (targetElement) {
+window.scrollTo({
+  top: targetElement.offsetTop - 80,
+  behavior: 'smooth'
+});
+}
+}
+});
+});
+*/
+
+  </script>
+</body>
+</html>

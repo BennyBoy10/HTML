@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=1024">
+  <meta name="description" content="Contact Global Scholars Initiative - Chat with our scholarship advisors">
+  <title>Contact Us - Global Scholars Initiative</title>
+
+<!-- Font Awesome & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+
+  <style>
+:root {
+  --primary: #6A5ACD;
+  --primary-light: #7B68EE;
+  --primary-dark: #483D8B;
+  --secondary: #9370DB;
+  --accent: #00BFFF;
+  --text-dark: #333;
+  --text-light: #666;
+  --background: #f8f9fa;
+  --white: #ffffff;
+  --card-bg: #ffffff;
+  --gradient: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+  --gradient-accent: linear-gradient(135deg, var(--primary-light), var(--accent));
+  --gradient-light: linear-gradient(135deg, rgba(106, 90, 205, 0.08), rgba(0, 191, 255, 0.05));
+  --border-radius: 20px;
+  --shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.12);
+  --chat-user-bg: linear-gradient(135deg, #7B68EE, #6A5ACD);
+  --chat-admin-bg: #f5f7ff;
+}
+
+.dark-theme {
+  --text-dark: #f0f0f0;
+  --text-light: #bbb;
+  --background: #121212;
+  --card-bg: #1e1e1e;
+  --shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  --shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.35);
+  --gradient-light: linear-gradient(135deg, rgba(106, 90, 205, 0.15), rgba(0, 191, 255, 0.08));
+  --chat-admin-bg: #252547;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+header {
+  background: var(--gradient);
+  color: var(--white);
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 25px rgba(106, 90, 205, 0.25);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+.logo i {
+  margin-right: 10px;
+  font-size: 24px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.theme-toggle-header {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-header:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+.theme-toggle-header span {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.dark-theme .theme-toggle-header {
+  background: rgba(0, 191, 255, 0.2);
+  justify-content: flex-end;
+}
+
+.dark-theme .theme-toggle-header span {
+  background: var(--accent);
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 24px;
+  background: var(--accent);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(0, 191, 255, 0.25);
+}
+
+.btn:hover {
+  background: #0099CC;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 191, 255, 0.35);
+}
+
+/* Main Content */
+.main-content {
+  padding: 40px 0 60px;
+}
+
+/* Chat Section */
+.chat-section {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.chat-system {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(106, 90, 205, 0.15);
+  overflow: hidden;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.chat-system::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient);
+  z-index: 2;
+}
+
+.chat-header {
+  background: linear-gradient(135deg, rgba(123, 104, 238, 0.95), rgba(106, 90, 205, 0.95));
+  color: white;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.chat-header h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chat-header h3 i {
+  font-size: 1.3rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.chat-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 6px 15px;
+  border-radius: 20px;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  box-shadow: 0 0 10px #4CAF50;
+}
+
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.chat-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--background);
+}
+
+.chat-decorations.hidden {
+  display: none;
+}
+
+.decoration-icon {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--gradient-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  font-size: 3.5rem;
+  color: var(--primary);
+  animation: float 4s ease-in-out infinite;
+  box-shadow: 0 8px 30px rgba(106, 90, 205, 0.15);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-15px) rotate(5deg); }
+  66% { transform: translateY(5px) rotate(-5deg); }
+}
+
+.decoration-text {
+  text-align: center;
+  color: var(--text-light);
+  max-width: 400px;
+}
+
+.decoration-text h3 {
+  font-size: 1.6rem;
+  color: var(--primary-dark);
+  margin-bottom: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.dark-theme .decoration-text h3 {
+  color: var(--accent);
+}
+
+.decoration-text p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--text-light);
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background-color: var(--background);
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  min-height: 0;
+}
+
+/* Custom scrollbar */
+.chat-messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: rgba(106, 90, 205, 0.05);
+  border-radius: 4px;
+  margin: 10px 0;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: rgba(106, 90, 205, 0.3);
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background: rgba(106, 90, 205, 0.5);
+}
+
+/* Message Styles */
+.message {
+  max-width: 70%;
+  padding: 18px 22px;
+  border-radius: 20px;
+  position: relative;
+  animation: messageSlide 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  word-wrap: break-word;
+  line-height: 1.5;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+}
+
+@keyframes messageSlide {
+  from {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+}
+  to {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+}
+
+.user-message {
+  align-self: flex-end;
+  background: var(--chat-user-bg);
+  color: white;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0 8px 25px rgba(123, 104, 238, 0.3);
+}
+
+.admin-message {
+  align-self: flex-start;
+  background: var(--chat-admin-bg);
+  color: var(--text-dark);
+  border-bottom-left-radius: 8px;
+  border: 1px solid rgba(106, 90, 205, 0.15);
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+}
+
+.message-sender {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  font-size: 0.9rem;
+}
+
+.user-message .message-sender {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.admin-message .message-sender {
+  color: var(--primary);
+}
+
+.message-time {
+  opacity: 0.8;
+  font-size: 0.8rem;
+}
+
+.message-text {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+/* Chat Input */
+.chat-input-container {
+  padding: 25px 30px;
+  border-top: 1px solid rgba(106, 90, 205, 0.1);
+  background-color: var(--card-bg);
+  position: relative;
+  z-index: 2;
+}
+
+.chat-input-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+}
+
+.chat-textarea {
+  flex: 1;
+  padding: 18px 24px;
+  border: 1px solid rgba(106, 90, 205, 0.2);
+  border-radius: 20px;
+  font-size: 1.05rem;
+  background-color: var(--background);
+  color: var(--text-dark);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  resize: none;
+  min-height: 60px;
+  max-height: 150px;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+}
+
+.chat-textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(106, 90, 255, 0.15);
+}
+
+.chat-textarea::placeholder {
+  color: var(--text-light);
+}
+
+.send-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--gradient);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  box-shadow: 0 6px 20px rgba(106, 90, 205, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.send-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(106, 90, 205, 0.4);
+}
+
+.send-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Contact Info Section */
+.contact-info-section {
+  padding: 60px 0 30px;
+  text-align: center;
+}
+
+.contact-info-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 45px;
+  box-shadow: var(--shadow);
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid rgba(106, 90, 205, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient);
+}
+
+.contact-icon {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 30px;
+  font-size: 2.2rem;
+  color: white;
+  box-shadow: 0 10px 30px rgba(106, 90, 205, 0.3);
+  animation: float 4s ease-in-out infinite 0.5s;
+}
+
+.contact-info-card h3 {
+  font-size: 1.9rem;
+  color: var(--primary-dark);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.dark-theme .contact-info-card h3 {
+  color: var(--accent);
+}
+
+.contact-info-card p {
+  color: var(--text-light);
+  font-size: 1.15rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.contact-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--gradient-light);
+  padding: 16px 32px;
+  border-radius: 30px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(106, 90, 205, 0.2);
+}
+
+.contact-email:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(106, 90, 205, 0.15);
+  border-color: rgba(106, 90, 205, 0.4);
+  background: rgba(106, 90, 205, 0.05);
+}
+
+.contact-email i {
+  font-size: 1.2rem;
+}
+
+/* Footer */
+footer {
+  background: var(--primary-dark);
+  color: var(--white);
+  padding: 50px 0 25px;
+  margin-top: 30px;
+}
+
+.dark-theme footer {
+  background: #362a75;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.footer-column h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: var(--accent);
+}
+
+.footer-column p, .footer-column a {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 8px;
+  display: block;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.footer-column a:hover {
+  color: var(--accent);
+  transform: translateX(5px);
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+.container {
+  padding: 0 15px;
+}
+  
+.logo {
+  font-size: 18px;
+}
+  
+.logo i {
+  font-size: 20px;
+}
+  
+.header-right {
+  gap: 15px;
+}
+  
+.chat-system {
+  height: 80vh;
+  border-radius: 16px;
+}
+  
+.chat-header {
+  padding: 15px 20px;
+}
+  
+.chat-header h3 {
+  font-size: 1.1rem;
+}
+  
+.chat-messages {
+  padding: 20px;
+  gap: 20px;
+}
+  
+.message {
+  max-width: 85%;
+  padding: 16px 20px;
+}
+  
+.decoration-icon {
+  width: 100px;
+  height: 100px;
+  font-size: 2.8rem;
+}
+  
+.decoration-text h3 {
+  font-size: 1.4rem;
+}
+  
+.decoration-text p {
+  font-size: 1.05rem;
+}
+  
+.chat-input-container {
+  padding: 20px;
+}
+  
+.chat-input-wrapper {
+  gap: 15px;
+}
+  
+.chat-textarea {
+  padding: 16px 20px;
+  min-height: 55px;
+}
+  
+.send-btn {
+  width: 55px;
+  height: 55px;
+  font-size: 1.3rem;
+}
+  
+.contact-info-card {
+  padding: 30px 20px;
+  margin: 0;
+}
+  
+.contact-icon {
+  width: 80px;
+  height: 80px;
+  font-size: 2rem;
+}
+  
+.contact-info-card h3 {
+  font-size: 1.6rem;
+}
+  
+.contact-email {
+  font-size: 1.1rem;
+  padding: 14px 25px;
+}
+}
+
+@media (max-width: 480px) {
+.chat-input-wrapper {
+  gap: 12px;
+}
+  
+.chat-textarea {
+  padding: 14px 18px;
+  min-height: 50px;
+}
+  
+.send-btn {
+  width: 50px;
+  height: 50px;
+  font-size: 1.2rem;
+}
+  
+.contact-info-section {
+  padding: 40px 0 20px;
+}
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+.container {
+  max-width: 850px;
+}
+  
+.message {
+  max-width: 75%;
+}
+}
+
+/* Desktop Large */
+@media (min-width: 1025px) {
+.chat-system {
+  max-width: 850px;
+  margin: 0 auto;
+}
+}
+  </style>
+</head>
+<body>
+<!-- Header -->
+  <header>
+  <div class="container">
+  <nav>
+<a href="index.html" class="logo">
+<i class="fas fa-graduation-cap"></i>
+<span>Global Scholars</span>
+</a>
+
+  <div class="header-right">
+<button class="theme-toggle-header" id="themeToggleHeader">
+<span></span>
+</button>
+<a href="Signup" class="btn">Apply Now</a>
+  </div>
+  </nav>
+  </div>
+  </header>
+
+<!-- Main Content -->
+  <main class="main-content">
+  <div class="container">
+<!-- Live Chat Support -->
+  <section class="chat-section">
+  <div class="chat-system">
+  <div class="chat-header">
+<h3><i class="fas fa-comments"></i> Support Chat</h3>
+  <div class="chat-status">
+<span class="status-indicator"></span>
+<span>Online now</span>
+  </div>
+  </div>
+
+  <div class="chat-container">
+<!-- Decorations for empty state -->
+  <div class="chat-decorations" id="chatDecorations">
+  <div class="decoration-icon">
+<i class="fas fa-comment-dots"></i>
+  </div>
+  <div class="decoration-text">
+<h3>Start a conversation with our support team</h3>
+<p>We typically respond within a few hours</p>
+  </div>
+  </div>
+
+  <div class="chat-messages" id="chatMessages">
+<!-- Messages will be loaded here -->
+  </div>
+
+  <div class="chat-input-container">
+  <div class="chat-input-wrapper">
+  <textarea class="chat-textarea" id="messageTextarea" 
+  placeholder="Type your message here..." 
+  maxlength="1000" rows="1"></textarea>
+<button class="send-btn" id="sendBtn">
+<i class="fas fa-paper-plane"></i>
+  </button>
+  </div>
+  </div>
+  </div>
+  </div>
+  </section>
+
+<!-- Contact Information -->
+  <section class="contact-info-section">
+  <div class="contact-info-card">
+  <div class="contact-icon">
+<i class="fas fa-envelope"></i>
+  </div>
+<h3>Email Us</h3>
+<p>For detailed inquiries or if you prefer email communication, feel free to reach out directly.</p>
+<a href="mailto:info@globalscholars.org" class="contact-email">
+<i class="fas fa-envelope"></i>
+  info@globalscholars.org
+</a>
+  </div>
+  </section>
+  </div>
+  </main>
+
+<!-- Footer -->
+  <footer>
+  <div class="container">
+  <div class="footer-content">
+  <div class="footer-column">
+<h3>Global Scholars</h3>
+<p>Empowering Nigerian students since 2012 through fully-funded international education.</p>
+  </div>
+  
+  <div class="footer-column">
+<h3>Quick Links</h3>
+<a href="index.html">Home</a>
+<a href="About.html">About Program</a>
+<a href="index.html#benefits">Benefits</a>
+<a href="index.html#process">How It Works</a>
+  </div>
+
+  <div class="footer-column">
+<h3>Contact</h3>
+<p><i class="fas fa-envelope"></i> info@globalscholars.org</p>
+<p><i class="fas fa-clock"></i> Mon-Fri: 9am-5pm WAT</p>
+  </div>
+  </div>
+
+  <div class="copyright">
+<p>&copy; <span id="currentYear">2025</span> Global Scholars Initiative. All rights reserved.</p>
+  </div>
+  </div>
+  </footer>
+
+  <script>
+
+// Your existing code START
+localStorage.setItem("GSemail", "davedandeed@gmail.com");
+// DOM elements
+const themeToggle = document.getElementById('themeToggleHeader');
+const body = document.body;
+const chatMessages = document.getElementById('chatMessages');
+const messageTextarea = document.getElementById('messageTextarea');
+const sendBtn = document.getElementById('sendBtn');
+const chatDecorations = document.getElementById('chatDecorations');
+
+// Chat state
+let chatHistory = [];
+let ticketId = null;
+const ADMIN_NAME = "Admin";
+const USER_NAME = "You";
+const USER_EMAIL = localStorage.getItem("GSemail") || "";
+const STORAGE_KEY = "GSChatHistory";
+const TICKET_KEY = "GSTicketId";
+
+// Theme management
+const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+if (savedTheme === 'dark') {
+  body.classList.add('dark-theme');
+}
+
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('dark-theme');
+  const isDark = body.classList.contains('dark-theme');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
+
+// Auto-resize textarea
+messageTextarea.addEventListener('input', function() {
+  this.style.height = 'auto';
+  this.style.height = Math.min(this.scrollHeight, 150) + 'px';
+});
+
+// Load chat history from localStorage
+function loadChatHistory() {
+try {
+  const stored = localStorage.getItem(STORAGE_KEY);
+  const storedTicketId = localStorage.getItem(TICKET_KEY);
+  
+if (storedTicketId) {
+  ticketId = storedTicketId;
+}
+
+if (stored) {
+  const parsed = JSON.parse(stored);
+if (Array.isArray(parsed) && parsed.length > 0) {
+  chatHistory = parsed;
+  chatDecorations.classList.add('hidden');
+} else {
+  chatHistory = [];
+  chatDecorations.classList.remove('hidden');
+}
+} else {
+  chatHistory = [];
+  chatDecorations.classList.remove('hidden');
+}
+  
+  renderChatMessages();
+} catch (error) {
+  chatHistory = [];
+  chatDecorations.classList.remove('hidden');
+  renderChatMessages();
+}
+}
+
+// Save chat history to localStorage
+function saveChatHistory() {
+try {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(chatHistory));
+} catch (error) {}
+}
+
+// Generate unique ID for messages
+function generateId() {
+  return 'TKT_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5).toUpperCase();
+}
+
+// Format timestamp to readable time
+function formatTime(timestamp) {
+  const date = new Date(timestamp);
+  return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
+
+function disableButton() {
+  sendBtn.disabled = true;
+  sendBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+}
+
+function enableButton() {
+  sendBtn.disabled = false;
+  sendBtn.innerHTML = '<i class="fas fa-paper-plane"></i>';
+}
+
+// Render all chat messages
+function renderChatMessages() {
+  chatMessages.innerHTML = '';
+
+if (chatHistory.length === 0) {
+  chatDecorations.classList.remove('hidden');
+  return;
+}
+  
+  chatDecorations.classList.add('hidden');
+  
+const sortedMessages = [...chatHistory].sort((a, b) => a.timestamp - b.timestamp);
+  
+sortedMessages.forEach((message, index) => {
+  const messageElement = createMessageElement(message);
+  chatMessages.appendChild(messageElement);
+  messageElement.style.animationDelay = `${index * 0.05}s`;
+});
+  
+  scrollToBottom();
+}
+
+// Create a message element
+function createMessageElement(message) {
+  const messageDiv = document.createElement('div');
+  messageDiv.className = `message ${message.sender === 'user' ? 'user-message' : 'admin-message'}`;
+  messageDiv.dataset.id = message.id;
+
+  const messageHeader = document.createElement('div');
+  messageHeader.className = 'message-header';
+
+  const senderSpan = document.createElement('span');
+  senderSpan.className = 'message-sender';
+  senderSpan.textContent = message.senderName;
+
+  const timeSpan = document.createElement('span');
+  timeSpan.className = 'message-time';
+  timeSpan.textContent = formatTime(message.timestamp);
+
+  messageHeader.appendChild(senderSpan);
+  messageHeader.appendChild(timeSpan);
+
+  const textDiv = document.createElement('div');
+  textDiv.className = 'message-text';
+  textDiv.textContent = message.text;
+
+  messageDiv.appendChild(messageHeader);
+  messageDiv.appendChild(textDiv);
+
+  return messageDiv;
+}
+
+// Scroll to bottom of chat
+function scrollToBottom() {
+setTimeout(() => {
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}, 100);
+}
+
+// Send email to backend API
+async function sendSupportEmail(messageText) {
+// Generate ticket ID if first message
+if (!ticketId) {
+  ticketId = generateId();
+  localStorage.setItem(TICKET_KEY, ticketId);
+}
+
+const userMessageCount = chatHistory.filter(m => m.sender === 'user').length;
+
+const emailData = {
+  ticketId: ticketId,
+  userEmail: USER_EMAIL,
+  message: messageText,
+  isFirstMessage: userMessageCount === 1 ? "NEW" : "FOLLOWUP",
+  currentYear: new Date().getFullYear()
+};
+
+try {
+  const response = await fetch('/api/Send-Mail', {
+  method: 'POST',
+  headers: {
+  'Content-Type': 'application/json',
+},
+  body: JSON.stringify(emailData)
+});
+
+  const result = await response.json();
+
+if (result.success) {
+  console.log('✅ Support ticket email sent successfully:', result.message);
+  enableButton();
+  addAndRender();
+} else {
+  console.error('❌ Failed to send support ticket:', result.message);
+  alert("❌ Failed to send message. Please try again!");
+  enableButton();
+}
+} catch (error) {
+  console.error('❌ Network error when sending support ticket:', error);
+  alert("❌ Network error. Please try again!");
+  enableButton();
+}
+}
+
+var userMessage;
+
+// Send a new message
+async function sendMessage() {
+  const text = messageTextarea.value.trim();
+
+if (!text) {
+  messageTextarea.focus();
+  return;
+}
+
+disableButton();
+
+// Create user message
+userMessage = {
+  id: generateId(),
+  text: text,
+  sender: 'user',
+  senderName: USER_NAME,
+  timestamp: Date.now()
+};
+
+// Send email to support
+  await sendSupportEmail(text);
+
+// If this is the first user message, send auto-reply
+  const userMessages = chatHistory.filter(m => m.sender === 'user');
+if (userMessages.length === 1) {
+  sendAutoReply();
+}
+}
+
+function addAndRender() {
+// Add to chat history and render
+  messageTextarea.value = '';
+  messageTextarea.style.height = 'auto';
+  chatHistory.push(userMessage);
+  saveChatHistory();
+  renderChatMessages();
+}
+
+// Send auto-reply for first message
+function sendAutoReply() {
+  disableButton();
+setTimeout(() => {
+const adminMessage = {
+  id: generateId(),
+  text: "Thanks for contacting Scholars Support.\nWe've received your message and will reply within a few hours.",
+  sender: 'admin',
+  senderName: ADMIN_NAME,
+  timestamp: Date.now()
+};
+
+  chatHistory.push(adminMessage);
+  saveChatHistory();
+  renderChatMessages();
+
+  enableButton();
+}, 1500);
+}
+
+// Event Listeners
+sendBtn.addEventListener('click', sendMessage);
+
+// ============================================
+// NEW REPLY CHECKING SYSTEM - Add BELOW here
+// ============================================
+
+// Reply polling state
+let replyCheckInterval = null;
+let deliveredReplyIds = [];
+
+// Load delivered reply IDs from localStorage
+function loadDeliveredReplyIds() {
+try {
+  const stored = localStorage.getItem('GSDeliveredReplyIds');
+if (stored) {
+  deliveredReplyIds = JSON.parse(stored);
+//  console.log(`📨 Loaded ${deliveredReplyIds.length} delivered reply IDs`);
+} else {
+  deliveredReplyIds = [];
+//  console.log('📨 No delivered reply IDs found, starting fresh');
+}
+} catch (error) {
+  console.error('❌ Error loading delivered reply IDs:', error);
+  deliveredReplyIds = [];
+}
+}
+
+// Save delivered reply IDs to localStorage
+function saveDeliveredReplyIds() {
+try {
+  localStorage.setItem('GSDeliveredReplyIds', JSON.stringify(deliveredReplyIds));
+//  console.log(`💾 Saved ${deliveredReplyIds.length} delivered reply IDs to localStorage`);
+} catch (error) {
+  console.error('❌ Error saving delivered reply IDs:', error);
+}
+}
+
+// Start polling for new replies
+function startReplyPolling() {
+if (!ticketId) {
+//  console.log('⚠️ Cannot start reply polling: No ticket ID');
+  return;
+}
+  
+//  console.log('🔄 Starting reply polling system');
+  
+// Load existing delivered IDs
+  loadDeliveredReplyIds();
+  
+// Check immediately on start
+  checkForReplies();
+  
+// Then check every 10 seconds
+  replyCheckInterval = setInterval(checkForReplies, 10000);
+  
+//  console.log('⏰ Reply polling started - checking every 10 seconds');
+//  console.log('🎫 Monitoring ticket:', ticketId);
+}
+
+// Stop reply polling
+function stopReplyPolling() {
+if (replyCheckInterval) {
+  clearInterval(replyCheckInterval);
+  replyCheckInterval = null;
+//  console.log('🛑 Stopped reply polling');
+}
+}
+
+// Check for new replies from the server
+async function checkForReplies() {
+if (!ticketId) {
+//  console.log('⚠️ Cannot check for replies: No ticket ID');
+  return;
+}
+
+//  console.log('🔍 Checking for new replies...');
+
+try {
+const response = await fetch('/api/check-replies', {
+  method: 'POST',
+headers: {
+  'Content-Type': 'application/json',
+},
+body: JSON.stringify({
+  ticketId: ticketId,
+  deliveredReplyIds: deliveredReplyIds,
+  userEmail: USER_EMAIL,
+  deviceId: localStorage.getItem('GSDeviceId') || 'web_browser'
+})
+});
+  
+  const result = await response.json();
+  
+if (result.success && result.data && result.data.replies.length > 0) {
+//  console.log(`📥 Received ${result.data.replies.length} new replies`);
+//  console.log('📊 Reply stats:', result.data.stats);
+
+  let newRepliesCount = 0;
+
+// Process each new reply
+result.data.replies.forEach(reply => {
+// Skip empty or invalid messages
+if (!reply.message || reply.message.trim() === '') {
+//  console.log('⚠️ Skipping empty reply message');
+  return;
+}
+
+// Add the admin reply to chat
+  newRepliesCount++;
+
+const adminMessage = {
+  id: `admin_${Date.now()}_${Math.random().toString(36).substr(2, 5)}`,
+  text: reply.message,
+  sender: 'admin',
+  senderName: reply.adminName || 'Global Scholars Support',
+  timestamp: new Date(reply.timestamp).getTime() || Date.now(),
+  replyId: reply.replyId
+};
+
+// Add to chat history
+  chatHistory.push(adminMessage);
+//  console.log(`✅ Added admin reply to chat: ${reply.replyId}`);
+
+// Mark this reply as delivered
+if (reply.replyId && !deliveredReplyIds.includes(reply.replyId)) {
+  deliveredReplyIds.push(reply.replyId);
+//  console.log(`✅ Marked reply as delivered: ${reply.replyId}`);
+}
+});
+
+if (newRepliesCount > 0) {
+// Save updated chat history
+  saveChatHistory();
+
+// Save updated delivered reply IDs
+  saveDeliveredReplyIds();
+
+// Re-render chat
+  renderChatMessages();
+
+// Show subtle notification
+  showReplyNotification(newRepliesCount);
+
+//  console.log(`🎉 Successfully added ${newRepliesCount} new replies`);
+} else {
+//  console.log('📭 No new replies to add');
+}
+} else if (result.success) {
+//  console.log('📭 No new replies found');
+} else {
+  console.error('❌ Failed to check for replies:', result.message);
+}
+
+} catch (error) {
+  console.error('💥 Network error checking for replies:', error);
+// Don't show error to user to avoid spamming
+}
+}
+
+// Show subtle notification for new replies
+function showReplyNotification(count) {
+// Create or update notification element
+  let notification = document.getElementById('replyNotification');
+  
+if (!notification) {
+  notification = document.createElement('div');
+  notification.id = 'replyNotification';
+notification.style.cssText = `
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--gradient);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(106, 90, 205, 0.3);
+  z-index: 10000;
+  animation: slideInRight 0.3s ease;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+  document.body.appendChild(notification);
+}
+
+notification.innerHTML = `
+<i class="fas fa-comment-dots"></i>
+<span>${count} new ${count === 1 ? 'reply' : 'replies'} received</span>
+`;
+
+// Auto-remove after 3 seconds
+setTimeout(() => {
+if (notification.parentNode) {
+  notification.style.animation = 'slideOutRight 0.3s ease';
+setTimeout(() => {
+if (notification.parentNode) {
+  notification.remove();
+}
+}, 300);
+}
+}, 3000);
+}
+
+// Add CSS animations for notifications
+if (!document.getElementById('replyNotificationStyles')) {
+  const style = document.createElement('style');
+  style.id = 'replyNotificationStyles';
+  style.textContent = `
+@keyframes slideInRight {
+  from { transform: translateX(100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+  @keyframes slideOutRight {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(100px); opacity: 0; }
+}
+`;
+  document.head.appendChild(style);
+}
+
+// Initialize reply system on page load
+function initializeReplySystem() {
+//  console.log('🚀 Initializing Global Scholars Reply System');
+
+// Load delivered reply IDs
+  loadDeliveredReplyIds();
+
+// Start polling if we have a ticket
+if (ticketId) {
+  startReplyPolling();
+//  console.log('🔔 Started reply polling for existing ticket:', ticketId);
+} else {
+//  console.log('📭 No existing ticket, polling will start with first message');
+}
+}
+
+// Update the sendMessage function to start polling after first message
+async function sendMessage() {
+  const text = messageTextarea.value.trim();
+
+if (!text) {
+  messageTextarea.focus();
+  return;
+}
+
+  disableButton();
+
+// Create user message
+userMessage = {
+  id: generateId(),
+  text: text,
+  sender: 'user',
+  senderName: USER_NAME,
+  timestamp: Date.now()
+};
+
+// Send email to support
+  await sendSupportEmail(text);
+
+// If this is the first user message, start polling for replies
+  const userMessages = chatHistory.filter(m => m.sender === 'user');
+if (userMessages.length === 1) {
+  sendAutoReply();
+
+// Start polling for admin replies
+setTimeout(() => {
+  startReplyPolling();
+}, 2000);
+}
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+// Set copyright year
+  const yearSpan = document.getElementById('currentYear');
+if (yearSpan) {
+  yearSpan.textContent = new Date().getFullYear();
+}
+
+// Load chat history
+  loadChatHistory();
+
+// Set focus to textarea
+setTimeout(() => {
+  messageTextarea.focus();
+}, 500);
+
+// Load ticket ID if exists
+  const storedTicketId = localStorage.getItem(TICKET_KEY);
+if (storedTicketId) {
+  ticketId = storedTicketId;
+}
+
+// Initialize reply system (NEW FUNCTION CALL)
+  initializeReplySystem();
+});
+
+// Cleanup polling on page unload (NEW)
+window.addEventListener('beforeunload', () => {
+  stopReplyPolling();
+//  console.log('🔄 Reply polling cleaned up');
+});
+
+// Export functions for debugging (NEW)
+if (typeof window !== 'undefined') {
+window.GlobalScholarsSupport = {
+  checkForReplies: checkForReplies,
+  startReplyPolling: startReplyPolling,
+  stopReplyPolling: stopReplyPolling,
+  getTicketId: () => ticketId,
+  getDeliveredReplyIds: () => deliveredReplyIds,
+  getChatHistory: () => chatHistory,
+forceCheckReplies: async () => {
+//  console.log('🔧 Manual reply check triggered');
+  await checkForReplies();
+}
+};
+
+//  console.log('🌐 Global Scholars Support API available: window.GlobalScholarsSupport');
+}
+
+  </script>
+</body>
+</html>

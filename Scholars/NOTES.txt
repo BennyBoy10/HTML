@@ -1,0 +1,40 @@
+Stop vibe coding
+
+Rework Dashboard Page
+
+Login and Signup page BG is too blank. Add animations
+Animations:
+Change Password, Login, Signup
+
+Add Title, Description, etc
+
+BG Images
+
+Make final touches
+
+Bot applications and duplicate applications
+
+Resend Code
+
+3 Steps:
+Fill Form
+Make 1-time Bot prevention Payment
+Submit application
+
+Verification Pages:
+if loggedIn { Dashboard }
+
+Get Started Buttons:
+if loggedIn { Dashboard }
+Else { signupPage }
+
+Move Verification pages to /auth/
+
+Refferals page
+
+Set age limit; hide green border and texts after setTimeout
+
+if !LoggedIn { Login.html }
+
+
+Sponsors Page
