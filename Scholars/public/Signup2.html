@@ -183,225 +183,200 @@ nav {
   linear-gradient(135deg, transparent 0%, var(--background) 100%);
 }
 
-/* Enhanced Floating Elements - Visible on all parts */
+/* Enhanced Floating Elements */
 .floating-elements {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
   overflow: hidden;
 }
 
 .float-el {
   position: absolute;
-  opacity: 0.4;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  filter: blur(1px);
-  transition: opacity 0.3s, background-color 0.3s;
+  opacity: 0.08;
+  animation: floatRandom 25s infinite linear;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
 }
 
 .dark-theme .float-el {
-  opacity: 0.3;
+  opacity: 0.12;
+  mix-blend-mode: screen;
 }
 
-/* Various shapes with different animations */
+/* Random shapes and sizes */
 .f1 {
   width: 120px;
   height: 120px;
-  background: linear-gradient(45deg, var(--primary-light), var(--accent));
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  background: var(--primary);
   top: 10%;
   left: 5%;
-  animation: float-random-1 25s infinite alternate;
+  animation-delay: 0s;
+  animation-duration: 40s;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
 }
 
 .f2 {
   width: 80px;
   height: 80px;
   background: var(--accent);
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  top: 20%;
-  right: 10%;
-  animation: float-random-2 20s infinite alternate-reverse;
+  top: 70%;
+  left: 85%;
+  animation-delay: 3s;
+  animation-duration: 35s;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
 }
 
 .f3 {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 60px;
   background: var(--secondary);
-  border-radius: 50%;
-  bottom: 15%;
-  left: 15%;
-  animation: float-random-3 30s infinite alternate;
-  box-shadow: 0 0 40px rgba(147, 112, 219, 0.3);
+  top: 20%;
+  left: 90%;
+  animation-delay: 5s;
+  animation-duration: 45s;
+  border-radius: 50% 20% 50% 40% / 40% 50% 30% 60%;
+  transform: rotate(45deg);
 }
 
 .f4 {
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  transform: rotate(45deg);
-  top: 40%;
-  left: 20%;
-  animation: float-random-4 22s infinite alternate-reverse;
+  width: 60px;
+  height: 60px;
+  background: var(--primary-light);
+  top: 85%;
+  left: 10%;
+  animation-delay: 2s;
+  animation-duration: 30s;
+  border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
 }
 
 .f5 {
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   background: var(--accent);
-  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-  bottom: 30%;
-  right: 20%;
-  animation: float-random-5 28s infinite alternate;
+  top: 30%;
+  left: 2%;
+  animation-delay: 7s;
+  animation-duration: 38s;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 }
 
 .f6 {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(45deg, var(--secondary), var(--primary-light));
+  width: 70px;
+  height: 70px;
+  background: var(--primary);
+  top: 60%;
+  left: 92%;
+  animation-delay: 4s;
+  animation-duration: 42s;
   border-radius: 20px;
-  top: 15%;
-  left: 50%;
-  animation: float-random-6 24s infinite alternate-reverse;
 }
 
 .f7 {
-  width: 110px;
-  height: 110px;
-  background: transparent;
-  border: 4px dashed var(--primary);
-  border-radius: 50%;
-  bottom: 10%;
-  right: 5%;
-  animation: float-random-7 35s infinite alternate;
+  width: 90px;
+  height: 90px;
+  background: var(--secondary);
+  top: 5%;
+  left: 75%;
+  animation-delay: 6s;
+  animation-duration: 33s;
+  border-radius: 30% 70% 50% 50% / 30% 50% 50% 70%;
 }
 
 .f8 {
-  width: 85px;
-  height: 85px;
-  background: linear-gradient(45deg, var(--primary-dark), var(--accent-dark));
-  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-  top: 60%;
-  left: 10%;
-  animation: float-random-8 26s infinite alternate-reverse;
+  width: 130px;
+  height: 40px;
+  background: var(--primary-light);
+  top: 45%;
+  left: 88%;
+  animation-delay: 1s;
+  animation-duration: 48s;
+  border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+  transform: rotate(30deg);
 }
 
 .f9 {
-  width: 95px;
-  height: 95px;
-  background: var(--primary-light);
-  border-radius: 40% 60% 60% 40% / 60% 40% 60% 40%;
-  top: 25%;
-  right: 15%;
-  animation: float-random-9 32s infinite alternate;
+  width: 50px;
+  height: 50px;
+  background: var(--accent);
+  top: 90%;
+  left: 50%;
+  animation-delay: 8s;
+  animation-duration: 28s;
+  border-radius: 50%;
 }
 
 .f10 {
-  width: 75px;
-  height: 75px;
-  background: linear-gradient(45deg, var(--accent), var(--secondary));
-  transform: rotate(30deg);
-  bottom: 40%;
-  left: 70%;
-  animation: float-random-10 29s infinite alternate-reverse;
+  width: 110px;
+  height: 110px;
+  background: var(--primary);
+  top: 15%;
+  left: 60%;
+  animation-delay: 9s;
+  animation-duration: 50s;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
 }
 
 .f11 {
-  width: 130px;
-  height: 130px;
-  background: transparent;
-  border: 3px solid var(--secondary);
-  border-radius: 50%;
-  top: 50%;
-  left: 80%;
-  animation: float-random-11 40s infinite alternate;
+  width: 40px;
+  height: 40px;
+  background: var(--secondary);
+  top: 75%;
+  left: 25%;
+  animation-delay: 10s;
+  animation-duration: 32s;
+  border-radius: 70% 30% 30% 70% / 70% 50% 50% 30%;
 }
 
 .f12 {
-  width: 65px;
-  height: 65px;
-  background: var(--primary);
-  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
-  bottom: 20%;
-  right: 30%;
-  animation: float-random-12 27s infinite alternate-reverse;
+  width: 85px;
+  height: 85px;
+  background: var(--primary-light);
+  top: 50%;
+  left: 5%;
+  animation-delay: 11s;
+  animation-duration: 37s;
+  border-radius: 50% 20% 20% 50% / 50% 40% 60% 50%;
 }
 
-/* Enhanced random floating animations */
-@keyframes float-random-1 {
-  0% { transform: translate(0, 0) rotate(0deg) scale(1); }
-  25% { transform: translate(100px, 150px) rotate(90deg) scale(1.1); }
-  50% { transform: translate(200px, 50px) rotate(180deg) scale(0.9); }
-  75% { transform: translate(150px, 200px) rotate(270deg) scale(1.05); }
-  100% { transform: translate(0, 0) rotate(360deg) scale(1); }
+@keyframes floatRandom {
+0% {
+  transform: translate(0, 0) rotate(0deg) scale(1);
 }
-
-@keyframes float-random-2 {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  33% { transform: translate(-150px, 100px) rotate(120deg); }
-  66% { transform: translate(100px, -150px) rotate(240deg); }
-  100% { transform: translate(0, 0) rotate(360deg); }
+10% {
+  transform: translate(30px, 50px) rotate(36deg) scale(1.1);
 }
-
-@keyframes float-random-3 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(180px, 120px) scale(1.2); }
+20% {
+  transform: translate(-20px, 80px) rotate(72deg) scale(0.9);
 }
-
-@keyframes float-random-4 {
-  0% { transform: translate(0, 0) rotate(45deg); }
-  100% { transform: translate(250px, -100px) rotate(405deg); }
+30% {
+  transform: translate(50px, 30px) rotate(108deg) scale(1.05);
 }
-
-@keyframes float-random-5 {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-200px, 150px) scale(1.3); }
-  100% { transform: translate(0, 0) scale(1); }
+40% {
+  transform: translate(-40px, 60px) rotate(144deg) scale(0.95);
 }
-
-@keyframes float-random-6 {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  25% { transform: translate(120px, 80px) rotate(90deg); }
-  50% { transform: translate(-80px, 160px) rotate(180deg); }
-  75% { transform: translate(160px, -80px) rotate(270deg); }
-  100% { transform: translate(0, 0) rotate(360deg); }
+50% {
+  transform: translate(20px, 100px) rotate(180deg) scale(1.15);
 }
-
-@keyframes float-random-7 {
-  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-  100% { transform: translate(300px, 200px) scale(1.5) rotate(720deg); }
+60% {
+  transform: translate(-60px, 40px) rotate(216deg) scale(0.85);
 }
-
-@keyframes float-random-8 {
-  0%, 100% { transform: translate(0, 0); opacity: 0.4; }
-  50% { transform: translate(150px, -120px); opacity: 0.7; }
+70% {
+  transform: translate(40px, 70px) rotate(252deg) scale(1.08);
 }
-
-@keyframes float-random-9 {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(-250px, 180px) rotate(540deg); }
+80% {
+  transform: translate(-30px, 20px) rotate(288deg) scale(0.92);
 }
-
-@keyframes float-random-10 {
-  0% { transform: translate(0, 0) rotate(30deg) scale(1); }
-  50% { transform: translate(180px, -150px) rotate(210deg) scale(1.4); }
-  100% { transform: translate(0, 0) rotate(390deg) scale(1); }
+  90% {
+  transform: translate(10px, 90px) rotate(324deg) scale(1.12);
 }
-
-@keyframes float-random-11 {
-  0% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(200px, 100px) scale(1.2); }
-  66% { transform: translate(-150px, 200px) scale(0.8); }
-  100% { transform: translate(0, 0) scale(1); }
+100% {
+  transform: translate(0, 0) rotate(360deg) scale(1);
 }
-
-@keyframes float-random-12 {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(220px, -180px) rotate(360deg); }
 }
 
 /* Enhanced Signup Container */
@@ -416,15 +391,14 @@ nav {
   position: relative;
   border: 1px solid rgba(106, 90, 205, 0.1);
   animation: fadeInUp 0.8s ease-out;
-  z-index: 1;
 }
 
 @keyframes fadeInUp {
-from { 
+  from { 
   opacity: 0; 
   transform: translateY(30px) scale(0.95); 
-  }
-to { 
+}
+  to { 
   opacity: 1; 
   transform: translateY(0) scale(1); 
 }
@@ -501,161 +475,6 @@ to {
 @keyframes pulse {
   0%, 100% { transform: scale(1); opacity: 0.1; }
   50% { transform: scale(1.1); opacity: 0.15; }
-}
-
-/* Decorative animated elements for signup-left */
-.decorative-elements {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.decorative-elements div {
-  position: absolute;
-  opacity: 0.15;
-  transition: opacity 0.3s, background-color 0.3s;
-}
-
-.dark-theme .decorative-elements div {
-  opacity: 0.25;
-}
-
-/* Circle */
-.deco-circle {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: var(--accent);
-  top: 15%;
-  left: 10%;
-  animation: float-circle 8s ease-in-out infinite alternate;
-}
-
-/* Square */
-.deco-square {
-  width: 40px;
-  height: 40px;
-  background: var(--primary-light);
-  bottom: 20%;
-  right: 15%;
-  animation: float-square 7s ease-in-out infinite alternate-reverse;
-  transform: rotate(45deg);
-}
-
-/* Triangle */
-.deco-triangle {
-  width: 0;
-  height: 0;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  border-bottom: 50px solid var(--secondary);
-  top: 50%;
-  right: 10%;
-  animation: float-triangle 9s ease-in-out infinite alternate;
-}
-
-/* Diamond */
-.deco-diamond {
-  width: 50px;
-  height: 50px;
-  background: var(--primary);
-  transform: rotate(45deg);
-  top: 70%;
-  left: 20%;
-  animation: float-diamond 10s ease-in-out infinite alternate-reverse;
-}
-
-/* Star */
-.deco-star {
-  width: 45px;
-  height: 45px;
-  background: var(--accent);
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-  bottom: 15%;
-  left: 75%;
-  animation: float-star 11s ease-in-out infinite alternate;
-}
-
-/* Hexagon */
-.deco-hexagon {
-  width: 55px;
-  height: 55px;
-  background: var(--secondary);
-  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-  top: 25%;
-  right: 25%;
-  animation: float-hexagon 12s ease-in-out infinite alternate-reverse;
-}
-
-/* Wave line */
-.deco-wave {
-  width: 120px;
-  height: 10px;
-  background: transparent;
-  border: 3px dashed var(--primary-light);
-  top: 40%;
-  left: 5%;
-  border-radius: 50%;
-  animation: wave-move 13s linear infinite;
-}
-
-/* Pulsing circle */
-.deco-pulse {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: transparent;
-  border: 2px solid var(--accent);
-  top: 60%;
-  left: 60%;
-  animation: pulse 4s ease-out infinite;
-}
-
-/* Animation keyframes for decorative elements */
-@keyframes float-circle {
-  0% { transform: translateY(0) rotate(0deg); }
-  100% { transform: translateY(-30px) rotate(180deg); }
-}
-
-@keyframes float-square {
-  0% { transform: translateX(0) rotate(45deg); }
-  100% { transform: translateX(40px) rotate(135deg); }
-}
-
-@keyframes float-triangle {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-25px) rotate(20deg); }
-}
-
-@keyframes float-diamond {
-  0% { transform: translate(0, 0) rotate(45deg); }
-  100% { transform: translate(30px, -20px) rotate(225deg); }
-}
-
-@keyframes float-star {
-  0% { transform: scale(1) rotate(0deg); }
-  50% { transform: scale(1.2) rotate(180deg); }
-  100% { transform: scale(1) rotate(360deg); }
-}
-
-@keyframes float-hexagon {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-40px); }
-}
-
-@keyframes wave-move {
-  0% { transform: translateX(0) rotate(0deg); }
-  100% { transform: translateX(50px) rotate(180deg); }
-}
-
-@keyframes pulse {
-  0% { transform: scale(0.8); opacity: 0.7; }
-  50% { transform: scale(1.2); opacity: 0.3; }
-  100% { transform: scale(0.8); opacity: 0.7; }
 }
 
 /* Enhanced Right Side */
@@ -740,6 +559,166 @@ to {
   transform: translateX(5px);
 }
 
+/* Enhanced CSS Decorations for Signup Left */
+.css-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+  animation: shapeFloat 20s infinite linear;
+  filter: blur(1px);
+}
+
+.shape-1 {
+  width: 80px;
+  height: 80px;
+  background: var(--accent);
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 25s;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+.shape-2 {
+  width: 120px;
+  height: 120px;
+  background: var(--primary-light);
+  top: 60%;
+  left: 80%;
+  animation-delay: 2s;
+  animation-duration: 30s;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+.shape-3 {
+  width: 60px;
+  height: 60px;
+  background: var(--white);
+  top: 20%;
+  left: 85%;
+  animation-delay: 4s;
+  animation-duration: 20s;
+  border-radius: 50% 20% 50% 40% / 40% 50% 30% 60%;
+}
+
+.shape-4 {
+  width: 100px;
+  height: 40px;
+  background: var(--secondary);
+  top: 75%;
+  left: 5%;
+  animation-delay: 1s;
+  animation-duration: 35s;
+  border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+  transform: rotate(45deg);
+}
+
+.shape-5 {
+  width: 70px;
+  height: 70px;
+  background: var(--accent);
+  top: 85%;
+  left: 70%;
+  animation-delay: 3s;
+  animation-duration: 28s;
+  border-radius: 30% 70% 50% 50% / 30% 50% 50% 70%;
+}
+
+.shape-6 {
+  width: 40px;
+  height: 40px;
+  background: var(--primary);
+  top: 40%;
+  left: 5%;
+  animation-delay: 5s;
+  animation-duration: 22s;
+  border-radius: 50% 20% 20% 50% / 50% 40% 60% 50%;
+}
+
+.shape-7 {
+  width: 90px;
+  height: 90px;
+  background: var(--primary-light);
+  top: 5%;
+  left: 75%;
+  animation-delay: 6s;
+  animation-duration: 32s;
+  border-radius: 70% 30% 30% 70% / 70% 50% 50% 30%;
+}
+
+.shape-8 {
+  width: 50px;
+  height: 50px;
+  background: var(--white);
+  top: 65%;
+  left: 15%;
+  animation-delay: 7s;
+  animation-duration: 26s;
+  border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+}
+
+@keyframes shapeFloat {
+0% {
+  transform: translate(0, 0) rotate(0deg) scale(1);
+  opacity: 0.15;
+}
+25% {
+  transform: translate(20px, 30px) rotate(90deg) scale(1.1);
+  opacity: 0.2;
+}
+50% {
+  transform: translate(-15px, 40px) rotate(180deg) scale(0.9);
+  opacity: 0.1;
+}
+75% {
+  transform: translate(10px, -20px) rotate(270deg) scale(1.05);
+  opacity: 0.2;
+}
+100% {
+  transform: translate(0, 0) rotate(360deg) scale(1);
+  opacity: 0.15;
+}
+}
+
+/* Dark theme adjustments for shapes */
+.dark-theme .shape {
+  opacity: 0.1;
+  filter: blur(0.5px);
+}
+
+.dark-theme .shape-1,
+.dark-theme .shape-5 {
+  background: var(--accent-dark);
+  opacity: 0.12;
+}
+
+.dark-theme .shape-2,
+.dark-theme .shape-7 {
+  background: var(--primary);
+  opacity: 0.1;
+}
+
+.dark-theme .shape-3,
+.dark-theme .shape-8 {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.dark-theme .shape-4,
+.dark-theme .shape-6 {
+  background: var(--secondary);
+  opacity: 0.12;
+}
 
 .dark-theme .signup-form h2 {
   color: var(--accent);
@@ -975,7 +954,20 @@ footer {
   font-size: 0.9rem;
 }
 
+/* Ensure floating elements are visible */
+.main {
+  position: relative;
+  z-index: 1;
+}
 
+.signup-container {
+  position: relative;
+  z-index: 2;
+}
+
+.floating-elements {
+  z-index: 0;
+}
 
 
 /* Responsive Design */
@@ -1049,6 +1041,7 @@ gap: 0;
   </header>
 
   <main class="main">
+<!-- Floating Background Elements -->
 <div class="floating-elements">
   <div class="float-el f1"></div>
   <div class="float-el f2"></div>
@@ -1067,17 +1060,6 @@ gap: 0;
   <div id="left-and-right-div" class="container">
   <div class="signup-container">
   <div class="signup-left">
-<!-- Decorative animated elements for signup-left -->
-<div class="decorative-elements">
-  <div class="deco-circle deco-1"></div>
-  <div class="deco-square deco-2"></div>
-  <div class="deco-triangle deco-3"></div>
-  <div class="deco-diamond deco-4"></div>
-  <div class="deco-star deco-5"></div>
-  <div class="deco-hexagon deco-6"></div>
-  <div class="deco-wave deco-7"></div>
-  <div class="deco-pulse deco-8"></div>
-</div>
 <h2>Start Your Scholarship Process</h2>
 <p>Global Scholars Hub provides access to fully funded international scholarship opportunities for eligible Nigerian students.</p>
 
@@ -1089,6 +1071,17 @@ gap: 0;
 <li><i class="fas fa-plane-departure"></i> Visa and relocation support</li>
 <li><i class="fas fa-lock"></i> No hidden charges</li>
 </ul>
+<!-- CSS Decorative Elements -->
+<div class="css-decoration">
+  <div class="shape shape-1"></div>
+  <div class="shape shape-2"></div>
+  <div class="shape shape-3"></div>
+  <div class="shape shape-4"></div>
+  <div class="shape shape-5"></div>
+  <div class="shape shape-6"></div>
+  <div class="shape shape-7"></div>
+  <div class="shape shape-8"></div>
+</div>
   </div>
 
   <div class="signup-right">
@@ -1233,23 +1226,18 @@ passwordToggle.addEventListener('click', () => {
 passwordToggle.click();
 
 
-var feeNotice = document.querySelector(".fee-notice");
 var noteP = document.getElementById('signup-note');
 // Enable and Disable button
 var createAccountButton = document.getElementById('create-account-button');
 function disableButton() {
   createAccountButton.disabled = true;
   createAccountButton.style.cursor = 'not-allowed';
-  createAccountButton.innerHTML = "Loading... <i class='fas fa-spinner fa-spin'></i>";
-  feeNotice.style.backgroundColor = "";
-  feeNotice.style.borderLeftColor = "";
+  createAccountButton.textContent = "Loading...";
 }
 function enableButton() {
   createAccountButton.disabled = false;
   createAccountButton.style.cursor = 'pointer';
   createAccountButton.textContent = "Create Account";
-  feeNotice.style.backgroundColor = "rgba(255, 87, 87, 0.15)";
-  feeNotice.style.borderLeftColor = "#ff5757";
 }
 function changeNoteP() {
 //  noteP.innerHTML = "<strong>Note:</strong> An application processing fee of ₦100 is required to generate your unique candidate ID and prevent spam applications. This fee will be requested after initial registration.";
@@ -1352,17 +1340,16 @@ setTimeout(() => {
 }, 2000);
 } else {
   noteP.textContent = result;
-  noteP.style.textAlign = "center";
-  
 }
 } catch (error) {
   console.error("Signup error:", error);
-  console.log("❌ An error occurred: " + error.message, true);
+  console.log("⚠️ An error occurred: " + error.message, true);
 } finally {
   enableButton();
 }
 
 });
+
 
   </script>
 </body>

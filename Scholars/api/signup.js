@@ -80,8 +80,8 @@ if (req.method !== "POST") {
   console.log("📧 Registration attempt for email:", email);
   
 if (!fullName || !email || !phone || !password || !education) {
-  console.log("⚠️ Validation failed - missing required fields");
-  return res.status(400).json({ error: "⚠️ Missing required fields" });
+  console.log("❌ Validation failed - missing required fields");
+  return res.status(400).json({ error: "❌ Missing required fields" });
 }
 
   const client = new MongoClient(uri);
@@ -106,7 +106,7 @@ try {
 if (existingUser) {
 if (existingUser.verified) {
   console.log("❌ User already exists with email:", email);
-  return res.status(400).send("⚠️ Email already exists!");
+  return res.status(400).send("❌ Email already exists!");
 } else {
   console.log("📧 Email exists but not verified - updating information and resending verification");
 
@@ -164,7 +164,7 @@ if (emailSent) {
   console.log("✅ New verification email sent to:", email);
   return res.status(200).send("✅ Information updated! New verification email sent! 🎉");
 } else {
-  console.log("⚠️ Information updated but email failed to send for:", email);
+  console.log("❌ Information updated but email failed to send for:", email);
   return res.status(200).send("✅ Information updated! But we couldn't send the verification email.");
 }
 }
@@ -223,7 +223,7 @@ if (emailSent) {
   console.log("🎉 Registration completed successfully for:", email);
 res.status(200).send("✅ User saved successfully 🎉. Verification email sent!");
 } else {
-  console.log("⚠️ User saved but email failed to send for:", email);
+  console.log("❌ User saved but email failed to send for:", email);
 res.status(200).send("✅ User saved successfully! But we couldn't send the verification email.");
 }
 } catch (err) {
@@ -231,7 +231,7 @@ res.status(200).send("✅ User saved successfully! But we couldn't send the veri
 
 if (err.code === 11000) {
   console.log("❌ Duplicate email error (MongoDB duplicate key)");
-res.status(400).send("⚠️ Email already exists!");
+res.status(400).send("❌ Email already exists!");
 } else {
   console.log("❌ Network error - connection failed");
 res.status(500).send("❌ Network error - connection failed!");
