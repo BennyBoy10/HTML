@@ -367,10 +367,11 @@ input:-webkit-autofill {
   margin: 20px 0;
   padding: 12px;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 0.95rem;
   line-height: 1.4;
   min-height: 60px;
-  border: 1px solid #a5d6a7;
+  border-left: 4px solid var(--primary);
+  background: rgba(106, 90, 205, 0.08);
 }
 
 /*
@@ -1053,6 +1054,29 @@ footer {
   z-index: 10;
 }
 
+/*
+body {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+.login-container {
+  -webkit-tap-highlight-color: transparent;
+}
+*/
+.login-right {
+  -webkit-tap-highlight-color: transparent;
+  background-color: var(--card-bg) !important;
+}
+/* Override any active states
+.login-right:active,
+.login-right:focus,
+.login-right:focus-visible {
+  background-color: var(--card-bg) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+*/
 
 @media (max-width: 900px) {
 .login-container {
@@ -1195,10 +1219,12 @@ gap: 10px;
 <li><i class="fas fa-shield-alt"></i> Secure and private account access</li>
   </ul>
 
-  <div style="display: none; margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 10px; backdrop-filter: blur(10px);">
+<!--
+  <div style="display: block; margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 10px; backdrop-filter: blur(10px);">
 <i class="fas fa-lightbulb" style="color: var(--accent); font-size: 1.5rem; margin-bottom: 10px; display: block;"></i>
 <p style="font-size: 0.9rem; opacity: 0.9; margin: 0;">Pro Tip: Keep your credentials secure and never share your login details.</p>
   </div>
+-->
 </div>
 
   <div class="login-right">
@@ -1322,24 +1348,14 @@ function enableButton() {
   loginButton.style.boxShadow = "";
 }
 
-/*
-function showMessage(message, isError = false) {
-  responseMessage.textContent = message;
-  responseMessage.style.display = "flex";
-  responseMessage.style.background = isError ? '#ffebee' : '#e8f5e9';
-  responseMessage.style.color = isError ? '#c62828' : '#2e7d32';
-  responseMessage.style.border = isError ? '1px solid #ef9a9a' : '1px solid #a5d6a7';
-}
-*/
-
 function showMessage(message, isError = false) {
   responseMessage.innerHTML = message; // Change to innerHTML to render the link
   responseMessage.style.display = "flex";
-  responseMessage.style.background = isError ? '#ffebee' : '#e8f5e9';
-  responseMessage.style.color = isError ? '#c62828' : '#2e7d32';
-  responseMessage.style.border = isError ? '1px solid #ef9a9a' : '1px solid #a5d6a7';
+  responseMessage.style.background = isError ? 'rgba(255, 87, 87, 0.15)' : '#e8f5e9';
+  responseMessage.style.color = isError ? '#FFF' : '';
+//  responseMessage.style.borderLeftColor = isError ? '1px solid #ef9a9a' : '1px solid #a5d6a7';
+  responseMessage.style.borderLeftColor = isError ? '#ff5757' : '';
 }
-
 
 var inputFields = document.querySelectorAll('#email, #password');
 inputFields.forEach(function(field) {
@@ -1505,6 +1521,19 @@ resendLink.addEventListener('click', async (e) => {
   enableButton();
 }
 });
+
+mainDiv = document.querySelector(".login-left");
+
+document.addEventListener("DOMContentLoaded", function() {
+setTimeout(() => {
+  mainDiv.click();
+}, 2000);
+});
+
+mainDiv.addEventListener("click", function() {
+  alert("Clicked!");
+});
+
 
   </script>
 

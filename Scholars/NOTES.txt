@@ -1,5 +1,6 @@
 Stop vibe coding
 
+Login page error message color on light mode/dark mode
 Rework Dashboard Page
 
 Gallery Pics
