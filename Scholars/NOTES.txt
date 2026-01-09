@@ -1,6 +1,7 @@
 Stop vibe coding
 
-Login page error message color on light mode/dark mode
+Resend Code
+
 Rework Dashboard Page
 
 Gallery Pics
@@ -11,9 +12,6 @@ Extract phone numbers from emails inboxes.
 
 Create new Scholars Emails
 
-Animations:
-Change Password
-
 Add Title, Description, etc
 
 BG Images
@@ -21,8 +19,6 @@ BG Images
 Make final touches
 
 Bot applications and duplicate applications
-
-Resend Code
 
 3 Steps:
 Fill Form
@@ -44,5 +40,3 @@ Set age limit; hide green border and texts after setTimeout
 
 if !LoggedIn { Login.html }
 
-
-Sponsors Page

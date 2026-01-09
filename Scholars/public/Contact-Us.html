@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="viewport" content="width=1024">
-  <meta name="description" content="Contact Global Scholars Initiative - Chat with our scholarship advisors">
-  <title>Contact Us - Global Scholars Initiative</title>
+  <meta name="description" content="Contact Global Scholars Hub - Chat with our scholarship advisors">
+  <title>Contact Us - Global Scholars Hub</title>
 
 <!-- Font Awesome & Google Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -171,6 +171,10 @@ nav {
   background: #0099CC;
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(0, 191, 255, 0.35);
+}
+
+button {
+  outline: none;
 }
 
 /* Main Content */
@@ -790,7 +794,7 @@ footer {
   <nav>
 <a href="index.html" class="logo">
 <i class="fas fa-graduation-cap"></i>
-<span>Global Scholars</span>
+<span>Global Scholars Hub</span>
 </a>
 
   <div class="header-right">
@@ -869,7 +873,7 @@ footer {
   <div class="container">
   <div class="footer-content">
   <div class="footer-column">
-<h3>Global Scholars</h3>
+<h3>Global Scholars Hub</h3>
 <p>Empowering Nigerian students since 2012 through fully-funded international education.</p>
   </div>
   
@@ -889,15 +893,12 @@ footer {
   </div>
 
   <div class="copyright">
-<p>&copy; <span id="currentYear">2025</span> Global Scholars Initiative. All rights reserved.</p>
+<p>&copy; <span id="currentYear">2025</span> Global Scholars Hub. All rights reserved.</p>
   </div>
   </div>
   </footer>
 
   <script>
-
-// Your existing code START
-localStorage.setItem("GSemail", "davedandeed@gmail.com");
 // DOM elements
 const themeToggle = document.getElementById('themeToggleHeader');
 const body = document.body;
@@ -1161,10 +1162,6 @@ const adminMessage = {
 // Event Listeners
 sendBtn.addEventListener('click', sendMessage);
 
-// ============================================
-// NEW REPLY CHECKING SYSTEM - Add BELOW here
-// ============================================
-
 // Reply polling state
 let replyCheckInterval = null;
 let deliveredReplyIds = [];
@@ -1175,10 +1172,8 @@ try {
   const stored = localStorage.getItem('GSDeliveredReplyIds');
 if (stored) {
   deliveredReplyIds = JSON.parse(stored);
-//  console.log(`📨 Loaded ${deliveredReplyIds.length} delivered reply IDs`);
 } else {
   deliveredReplyIds = [];
-//  console.log('📨 No delivered reply IDs found, starting fresh');
 }
 } catch (error) {
   console.error('❌ Error loading delivered reply IDs:', error);
@@ -1190,7 +1185,6 @@ if (stored) {
 function saveDeliveredReplyIds() {
 try {
   localStorage.setItem('GSDeliveredReplyIds', JSON.stringify(deliveredReplyIds));
-//  console.log(`💾 Saved ${deliveredReplyIds.length} delivered reply IDs to localStorage`);
 } catch (error) {
   console.error('❌ Error saving delivered reply IDs:', error);
 }
@@ -1202,9 +1196,7 @@ if (!ticketId) {
 //  console.log('⚠️ Cannot start reply polling: No ticket ID');
   return;
 }
-  
-//  console.log('🔄 Starting reply polling system');
-  
+
 // Load existing delivered IDs
   loadDeliveredReplyIds();
   
@@ -1213,9 +1205,6 @@ if (!ticketId) {
   
 // Then check every 10 seconds
   replyCheckInterval = setInterval(checkForReplies, 10000);
-  
-//  console.log('⏰ Reply polling started - checking every 10 seconds');
-//  console.log('🎫 Monitoring ticket:', ticketId);
 }
 
 // Stop reply polling
@@ -1234,8 +1223,6 @@ if (!ticketId) {
   return;
 }
 
-//  console.log('🔍 Checking for new replies...');
-
 try {
 const response = await fetch('/api/check-replies', {
   method: 'POST',
@@ -1253,16 +1240,12 @@ body: JSON.stringify({
   const result = await response.json();
   
 if (result.success && result.data && result.data.replies.length > 0) {
-//  console.log(`📥 Received ${result.data.replies.length} new replies`);
-//  console.log('📊 Reply stats:', result.data.stats);
-
   let newRepliesCount = 0;
 
 // Process each new reply
 result.data.replies.forEach(reply => {
 // Skip empty or invalid messages
 if (!reply.message || reply.message.trim() === '') {
-//  console.log('⚠️ Skipping empty reply message');
   return;
 }
 
@@ -1280,12 +1263,10 @@ const adminMessage = {
 
 // Add to chat history
   chatHistory.push(adminMessage);
-//  console.log(`✅ Added admin reply to chat: ${reply.replyId}`);
 
 // Mark this reply as delivered
 if (reply.replyId && !deliveredReplyIds.includes(reply.replyId)) {
   deliveredReplyIds.push(reply.replyId);
-//  console.log(`✅ Marked reply as delivered: ${reply.replyId}`);
 }
 });
 
@@ -1302,7 +1283,6 @@ if (newRepliesCount > 0) {
 // Show subtle notification
   showReplyNotification(newRepliesCount);
 
-//  console.log(`🎉 Successfully added ${newRepliesCount} new replies`);
 } else {
 //  console.log('📭 No new replies to add');
 }
@@ -1383,15 +1363,12 @@ if (!document.getElementById('replyNotificationStyles')) {
 
 // Initialize reply system on page load
 function initializeReplySystem() {
-//  console.log('🚀 Initializing Global Scholars Reply System');
-
 // Load delivered reply IDs
   loadDeliveredReplyIds();
 
 // Start polling if we have a ticket
 if (ticketId) {
   startReplyPolling();
-//  console.log('🔔 Started reply polling for existing ticket:', ticketId);
 } else {
 //  console.log('📭 No existing ticket, polling will start with first message');
 }
@@ -1461,7 +1438,6 @@ if (storedTicketId) {
 // Cleanup polling on page unload (NEW)
 window.addEventListener('beforeunload', () => {
   stopReplyPolling();
-//  console.log('🔄 Reply polling cleaned up');
 });
 
 // Export functions for debugging (NEW)
@@ -1474,12 +1450,10 @@ window.GlobalScholarsSupport = {
   getDeliveredReplyIds: () => deliveredReplyIds,
   getChatHistory: () => chatHistory,
 forceCheckReplies: async () => {
-//  console.log('🔧 Manual reply check triggered');
   await checkForReplies();
 }
 };
 
-//  console.log('🌐 Global Scholars Support API available: window.GlobalScholarsSupport');
 }
 
   </script>

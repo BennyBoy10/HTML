@@ -64,10 +64,11 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
+
 header {
   background: var(--white);
   color: var(--primary-dark);
-  padding: 20px 0;
+  padding: 20px 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
@@ -135,11 +136,11 @@ nav {
   align-items: center;
   padding: 60px 0;
   background: 
-    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="rgba(106, 90, 205, 0.03)" width="100" height="100"/></svg>'),
-    radial-gradient(circle at 20% 80%, rgba(123, 104, 238, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(0, 191, 255, 0.05) 0%, transparent 50%);
-  position: relative; /* ADD THIS LINE */
-  overflow: hidden;   /* ADD THIS LINE */
+  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="rgba(106, 90, 205, 0.03)" width="100" height="100"/></svg>'),
+  radial-gradient(circle at 20% 80%, rgba(123, 104, 238, 0.05) 0%, transparent 50%),
+  radial-gradient(circle at 80% 20%, rgba(0, 191, 255, 0.05) 0%, transparent 50%);
+  position: relative;
+  overflow: hidden;
 }
 
 .dark-theme .main {
@@ -163,19 +164,6 @@ nav {
 .login-container:hover {
   box-shadow: var(--shadow-hover);
 }
-/*
-.login-left {
-  flex: 1;
-  background: var(--gradient);
-  color: var(--white);
-  padding: 50px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-*/
 
 .login-left {
   flex: 1;
@@ -290,17 +278,6 @@ input, button, select {
   outline: none;
 }
 
-/*
-.form-group input:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.2);
-}
-.dark-theme .form-group input:focus {
-  box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.4);
-}
-*/
-
 .form-group input:focus {
   outline: none;
   border-color: var(--primary);
@@ -373,43 +350,6 @@ input:-webkit-autofill {
   border-left: 4px solid var(--primary);
   background: rgba(106, 90, 205, 0.08);
 }
-
-/*
-.btn {
-  display: inline-block;
-  width: 100%;
-  padding: 18px;
-  background: var(--gradient-accent);
-  color: var(--white);
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  border: none;
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: 0.5s;
-}
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-.btn:hover::before {
-  left: 100%;
-}
-*/
 
 .btn {
   display: inline-block;
@@ -930,13 +870,6 @@ footer {
   border-color: var(--accent);
 }
 
-/*
-.dark-theme .cross:before,
-.dark-theme .cross:after {
-  border-color: var(--accent);
-}
-*/
-
 .dark-theme .teardrop {
   border-color: var(--accent);
 }
@@ -1054,29 +987,10 @@ footer {
   z-index: 10;
 }
 
-/*
-body {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-}
-
-.login-container {
-  -webkit-tap-highlight-color: transparent;
-}
-*/
 .login-right {
   -webkit-tap-highlight-color: transparent;
   background-color: var(--card-bg) !important;
 }
-/* Override any active states
-.login-right:active,
-.login-right:focus,
-.login-right:focus-visible {
-  background-color: var(--card-bg) !important;
-  outline: none !important;
-  box-shadow: none !important;
-}
-*/
 
 @media (max-width: 900px) {
 .login-container {
@@ -1218,13 +1132,6 @@ gap: 10px;
 <li><i class="fas fa-folder-open"></i> Access scholarship-related documents</li>
 <li><i class="fas fa-shield-alt"></i> Secure and private account access</li>
   </ul>
-
-<!--
-  <div style="display: block; margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 10px; backdrop-filter: blur(10px);">
-<i class="fas fa-lightbulb" style="color: var(--accent); font-size: 1.5rem; margin-bottom: 10px; display: block;"></i>
-<p style="font-size: 0.9rem; opacity: 0.9; margin: 0;">Pro Tip: Keep your credentials secure and never share your login details.</p>
-  </div>
--->
 </div>
 
   <div class="login-right">
@@ -1299,10 +1206,23 @@ if (savedTheme === 'dark') {
   body.classList.add('dark-theme');
 }
 
+// Update response message color when theme changes
+function updateResponseMessageColor() {
+  const isDark = body.classList.contains('dark-theme');
+  const responseMessage = document.getElementById('responseMessage');
+if (responseMessage) {
+  responseMessage.style.color = isDark ? '#FFF' : '#000';
+}
+}
+
+// Update initially
+updateResponseMessageColor();
+
 themeToggle.addEventListener('click', () => {
   body.classList.toggle('dark-theme');
   const isDark = body.classList.contains('dark-theme');
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  updateResponseMessageColor();
 });
 
 // Password toggle functionality
@@ -1351,8 +1271,8 @@ function enableButton() {
 function showMessage(message, isError = false) {
   responseMessage.innerHTML = message; // Change to innerHTML to render the link
   responseMessage.style.display = "flex";
-  responseMessage.style.background = isError ? 'rgba(255, 87, 87, 0.15)' : '#e8f5e9';
-  responseMessage.style.color = isError ? '#FFF' : '';
+  responseMessage.style.background = isError ? 'rgba(255, 87, 87, 0.15)' : '';
+//  responseMessage.style.color = isError ? '#FFF' : '';
 //  responseMessage.style.borderLeftColor = isError ? '1px solid #ef9a9a' : '1px solid #a5d6a7';
   responseMessage.style.borderLeftColor = isError ? '#ff5757' : '';
 }
@@ -1454,25 +1374,6 @@ headers: { "Content-Type": "application/json" },
   const result = await response.json();
   console.log("Login response:", result);
 
-/*
-if (response.ok && result.success) {
-  showMessage(result.message, false);
-  console.log("✅ Login successful for:", email);
-  UpdateLocalStorage();
-  localStorage.setItem("GSfullName", result.user.fullName || "");
-  localStorage.setItem("GSemail", result.user.email || "");
-  localStorage.setItem("GSphone", result.user.phone || "");
-  localStorage.setItem("GSeducation", result.user.education || "");
-  localStorage.setItem("GSloggedIn", true);
-setTimeout(() => {
-  //window.location.href = "Dashboard";
-}, 1500);
-} else {
-  showMessage(result.message, true);
-  console.log("❌ Login failed:", result.message);
-}
-*/
-
 
 if (response.ok && result.success) {
   showMessage(result.message, false);
@@ -1520,18 +1421,6 @@ resendLink.addEventListener('click', async (e) => {
 } finally {
   enableButton();
 }
-});
-
-mainDiv = document.querySelector(".login-left");
-
-document.addEventListener("DOMContentLoaded", function() {
-setTimeout(() => {
-  mainDiv.click();
-}, 2000);
-});
-
-mainDiv.addEventListener("click", function() {
-  alert("Clicked!");
 });
 
 

@@ -1184,26 +1184,6 @@ card.addEventListener('mouseleave', function() {
 });
 });
 
-/*
-// Ensure buttons work correctly
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function (e) {
-if (this.getAttribute('href') !== '#') {
-  e.preventDefault();
-  const targetId = this.getAttribute('href').substring(1);
-  const targetElement = document.getElementById(targetId);
-
-if (targetElement) {
-window.scrollTo({
-  top: targetElement.offsetTop - 80,
-  behavior: 'smooth'
-});
-}
-}
-});
-});
-*/
-
   </script>
 </body>
 </html>
