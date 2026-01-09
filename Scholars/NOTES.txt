@@ -1,5 +1,13 @@
 Stop vibe coding
 
+Create Scholars FB Accounts
+
+Extract phone numbers from emails inboxes.
+
+Create new Scholars Emails
+
+Add animations to Login Page
+
 Rework Dashboard Page
 
 Login and Signup page BG is too blank. Add animations
