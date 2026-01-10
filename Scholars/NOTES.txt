@@ -1,8 +1,9 @@
 Stop vibe coding
 
-Resend Code
+Rework Dashboard Page:
+Verification Required div
 
-Rework Dashboard Page
+
 
 Gallery Pics
 
