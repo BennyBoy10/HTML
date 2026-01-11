@@ -857,6 +857,7 @@ textarea:-webkit-autofill {
   color: var(--success);
 }
 
+/*
 .payment-info {
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.97), rgba(250, 250, 255, 0.98));
   border-radius: 14px;
@@ -1185,7 +1186,6 @@ textarea:-webkit-autofill {
   color: var(--text-light);
 }
 
-/* Animations */
 @keyframes shine {
   0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
   100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
@@ -1196,7 +1196,6 @@ textarea:-webkit-autofill {
   50% { background-position: 100% 50%; }
 }
 
-/* Mobile Optimizations */
 @media (max-width: 768px) {
 .payment-info {
   padding: 20px;
@@ -1264,7 +1263,6 @@ textarea:-webkit-autofill {
 }
 }
 
-/* Print styles */
 @media print {
 .payment-info {
   border: 1px solid #ddd;
@@ -1273,7 +1271,7 @@ textarea:-webkit-autofill {
   break-inside: avoid;
 }
 }
-
+*/
 
 
 /* Application Submitted Section */
@@ -1562,6 +1560,470 @@ textarea:-webkit-autofill {
 */
 
 
+/* Enhanced Payment Info Styles */
+.payment-info {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.97), rgba(250, 250, 255, 0.98));
+  border-radius: 16px;
+  padding: 28px;
+  margin: 30px 0 20px;
+  border: 1.6px solid rgba(106, 90, 205, 0.18);
+  box-shadow: 
+    0 8px 32px rgba(106, 90, 205, 0.08),
+    0 3px 10px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+.payment-info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-light), var(--accent), var(--primary-light));
+  opacity: 0.9;
+}
+
+.dark-theme .payment-info {
+  background: linear-gradient(145deg, rgba(25, 25, 35, 0.95), rgba(20, 20, 30, 0.97));
+  border-color: rgba(106, 90, 205, 0.25);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    0 3px 10px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.payment-info:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 12px 40px rgba(106, 90, 205, 0.12),
+    0 5px 15px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  border-color: rgba(106, 90, 205, 0.25);
+}
+
+.dark-theme .payment-info:hover {
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.3),
+    0 5px 15px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border-color: rgba(106, 90, 205, 0.35);
+}
+
+.verification-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1.5px solid rgba(106, 90, 205, 0.12);
+}
+
+.header-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: 
+    0 6px 20px rgba(106, 90, 205, 0.3),
+    0 3px 10px rgba(106, 90, 205, 0.2);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.header-icon::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shine 3s infinite;
+}
+
+.payment-info:hover .header-icon {
+  transform: rotate(5deg) scale(1.05);
+  box-shadow: 
+    0 8px 28px rgba(106, 90, 205, 0.4),
+    0 4px 14px rgba(106, 90, 205, 0.25);
+}
+
+.header-content h3 {
+  color: var(--primary-dark);
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.3px;
+  background: linear-gradient(135deg, var(--primary-dark) 30%, var(--primary-light) 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark-theme .header-content h3 {
+  background: linear-gradient(135deg, var(--accent) 30%, var(--primary-light) 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-content p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin: 0;
+  font-weight: 600;
+  opacity: 0.9;
+  letter-spacing: 0.3px;
+}
+
+.verification-fee {
+  margin: 28px 0;
+  padding: 24px;
+  background: linear-gradient(135deg, 
+    rgba(106, 90, 205, 0.06), 
+    rgba(123, 104, 238, 0.04));
+  border-radius: 14px;
+  border: 1.5px solid rgba(106, 90, 205, 0.15);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.dark-theme .verification-fee {
+  background: linear-gradient(135deg, 
+    rgba(106, 90, 205, 0.1), 
+    rgba(123, 104, 238, 0.07));
+  border-color: rgba(106, 90, 205, 0.2);
+}
+
+.verification-fee:hover {
+  transform: translateX(3px);
+  border-color: rgba(106, 90, 205, 0.25);
+  box-shadow: 0 6px 24px rgba(106, 90, 205, 0.1);
+}
+
+.fee-amount {
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.amount-symbol {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  opacity: 0.9;
+  margin-right: 4px;
+  vertical-align: top;
+}
+
+.amount-number {
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: var(--primary-dark);
+  line-height: 1;
+  letter-spacing: -1.5px;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 50%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: text-gradient 4s ease-in-out infinite;
+  display: inline-block;
+  margin: 0 4px;
+}
+
+.dark-theme .amount-number {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--primary-light) 50%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.fee-label {
+  display: inline-block;
+  background: rgba(106, 90, 205, 0.1);
+  color: var(--primary-dark);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-top: 8px;
+  border: 1px solid rgba(106, 90, 205, 0.2);
+  letter-spacing: 0.5px;
+}
+
+.dark-theme .fee-label {
+  background: rgba(106, 90, 205, 0.2);
+  color: var(--accent);
+  border-color: rgba(106, 90, 205, 0.3);
+}
+
+.fee-details p {
+  color: var(--text-dark);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 500;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.dark-theme .fee-details p {
+  color: var(--text-light);
+}
+
+.verification-purpose {
+  margin: 28px 0;
+}
+
+.verification-purpose h4 {
+  color: var(--primary-dark);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  letter-spacing: -0.2px;
+}
+
+.dark-theme .verification-purpose h4 {
+  color: var(--accent);
+}
+
+.purpose-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.purpose-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  border: 1.5px solid rgba(106, 90, 205, 0.14);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.dark-theme .purpose-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(106, 90, 205, 0.2);
+}
+
+.purpose-item:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(106, 90, 205, 0.3);
+  box-shadow: 0 8px 24px rgba(106, 90, 205, 0.15);
+}
+
+.dark-theme .purpose-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.purpose-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(106, 90, 205, 0.1), rgba(123, 104, 238, 0.05));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  margin: auto 0;
+}
+
+.dark-theme .purpose-icon {
+  background: linear-gradient(135deg, rgba(106, 90, 205, 0.2), rgba(123, 104, 238, 0.1));
+}
+
+.purpose-item:hover .purpose-icon {
+  background: var(--gradient);
+  color: white;
+  transform: rotateY(180deg) scale(1.1);
+}
+
+.purpose-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.purpose-content strong {
+  display: block;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: -0.2px;
+}
+
+.dark-theme .purpose-content strong {
+  color: var(--text-light);
+}
+
+.purpose-content p {
+  color: var(--text-light);
+  font-size: 0.82rem;
+  margin: 0;
+  opacity: 0.85;
+  line-height: 1.4;
+}
+
+.verification-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px;
+  background: linear-gradient(135deg, 
+    rgba(0, 191, 255, 0.08), 
+    rgba(106, 90, 205, 0.05));
+  border-radius: 10px;
+  border-left: 4px solid var(--accent);
+  margin-top: 24px;
+}
+
+.dark-theme .verification-notice {
+  background: linear-gradient(135deg, 
+    rgba(0, 191, 255, 0.12), 
+    rgba(106, 90, 205, 0.08));
+}
+
+.verification-notice i {
+  color: var(--accent);
+  font-size: 1.1rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.verification-notice p {
+  color: var(--text-dark);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 500;
+}
+
+.dark-theme .verification-notice p {
+  color: var(--text-light);
+}
+
+.verification-notice strong {
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+.dark-theme .verification-notice strong {
+  color: var(--accent);
+}
+
+/* Animations */
+@keyframes shine {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+@keyframes text-gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .payment-info {
+    padding: 24px;
+    margin: 28px 0;
+  }
+  
+  .purpose-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  
+  .amount-number {
+    font-size: 3.2rem;
+  }
+  
+  .verification-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+  }
+  
+  .header-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 1.6rem;
+  }
+  
+  .verification-fee {
+    padding: 20px;
+  }
+  
+  .fee-details p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .payment-info {
+    padding: 20px;
+    margin: 24px 0;
+    border-radius: 14px;
+  }
+  
+  .amount-number {
+    font-size: 2.8rem;
+  }
+  
+  .verification-fee {
+    padding: 18px;
+  }
+  
+  .purpose-item {
+    padding: 16px;
+    gap: 12px;
+  }
+  
+  .purpose-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .verification-notice {
+    padding: 18px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .payment-info {
+    border: 1px solid #ddd;
+    box-shadow: none;
+    background: white;
+    break-inside: avoid;
+  }
+}
+
+
 /* Footer */
 footer {
   background: var(--primary-dark);
@@ -1822,25 +2284,25 @@ footer {
 </a>
 
 <a href="Change-Password" class="sidebar-item">
-  <i class="fas fa-key"></i>
-  <span>Change Password</span>
+<i class="fas fa-key"></i>
+<span>Change Password</span>
   </a>
 
   <a href="FAQs" class="sidebar-item">
-  <i class="fas fa-question-circle"></i>
-  <span>FAQs</span>
+<i class="fas fa-question-circle"></i>
+<span>FAQs</span>
   </a>
 
   <div class="sidebar-divider"></div>
 
   <div class="sidebar-item logout" id="logoutBtn">
-  <i class="fas fa-sign-out-alt"></i>
-  <span>Logout</span>
+<i class="fas fa-sign-out-alt"></i>
+<span>Logout</span>
   </div>
   </div>
 
   <div class="sidebar-footer">
-  <p>Global Scholars Hub</p>
+<p>Global Scholars Hub</p>
   </div>
 </div>
 
@@ -2009,14 +2471,14 @@ footer {
   </div>
 </form>
 
-  <div class="payment-info">
+<div class="payment-info">
   <div class="verification-header">
   <div class="header-icon">
-<i class="fas fa-shield-alt"></i>
+<i class="fas fa-check-circle"></i>
   </div>
   <div class="header-content">
-<h3>Verification Required</h3>
-<p>Mandatory for application processing</p>
+<h3>Application Verification</h3>
+<p>Required for scholarship consideration</p>
   </div>
   </div>
 
@@ -2024,91 +2486,117 @@ footer {
   <div class="fee-amount">
 <span class="amount-symbol">₦</span>
 <span class="amount-number">100</span>
+  <div class="fee-label">One-Time Fee</div>
   </div>
   <div class="fee-details">
-<p>One-time verification fee to confirm your identity and prevent automated submissions.</p>
+<p>This small fee ensures your application is genuine and receives proper review from our scholarship committee.</p>
   </div>
   </div>
 
-  <div class="verification-features">
-  <div class="feature-row">
-  <div class="feature-card">
-  <div class="card-icon">
-<i class="fas fa-robot"></i>
+  <div class="verification-purpose">
+<h4>Why This Fee Is Required:</h4>
+  <div class="purpose-grid">
+  <div class="purpose-item">
+  <div class="purpose-icon">
+<i class="fas fa-user-shield"></i>
   </div>
-  <div class="card-content">
-<strong>Anti-Bot System</strong>
-<p>Prevents spam applications</p>
-  </div>
-  </div>
-
-  <div class="feature-card">
-  <div class="card-icon">
-<i class="fas fa-user-check"></i>
-  </div>
-  <div class="card-content">
+  <div class="purpose-content">
 <strong>Identity Verification</strong>
-<p>Confirms genuine applicants</p>
+<p>Confirms you're a real person applying for the scholarship</p>
   </div>
   </div>
+
+  <div class="purpose-item">
+  <div class="purpose-icon">
+<i class="fas fa-ban"></i>
+  </div>
+  <div class="purpose-content">
+<strong>Prevents Duplicates</strong>
+<p>Stops multiple submissions from the same person</p>
+  </div>
+  </div>
+<!--
+  <div class="purpose-item">
+  <div class="purpose-icon">
+<i class="fas fa-filter"></i>
+  </div>
+  <div class="purpose-content">
+<strong>Quality Assurance</strong>
+<p>Filters unserious applications to focus on genuine candidates</p>
+  </div>
+  </div>
+-->
+
+<!--
+  <div class="purpose-item">
+  <div class="purpose-icon">
+<i class="fas fa-clipboard-check"></i>
+  </div>
+  <div class="purpose-content">
+<strong>Review Priority</strong>
+<p>Your application gets reviewed by our committee members</p>
+  </div>
+  </div>
+-->
+
   </div>
   </div>
 
   <div class="verification-notice">
-<i class="fas fa-exclamation-circle"></i>
-<p>This fee is mandatory and non-refundable. No additional charges will be required.</p>
+<i class="fas fa-info-circle"></i>
+<p><strong>Important:</strong> Your application will only be reviewed by our scholarship committee after this verification. This is the only payment required - no hidden fees.</p>
   </div>
-  </div>
+</div>
 
   <!-- Application Submitted Section (Initially Hidden) -->
   <div id="paymentSuccessInfo" class="application-submitted" style="display: none;">
   <div class="submission-header">
   <div class="submission-icon">
-  <i class="fas fa-check-circle"></i>
+<i class="fas fa-check-circle"></i>
   </div>
   <div class="submission-content">
-  <h3>Application Submitted</h3>
-  <p>Your scholarship application has been received and is now under review.</p>
+<h3>Application Submitted</h3>
+<p>Your scholarship application has been received and is now under review.</p>
   </div>
   </div>
 
   <div class="submission-status">
   <div class="status-card">
   <div class="status-icon">
-  <i class="fas fa-clipboard-list"></i>
+<i class="fas fa-clipboard-list"></i>
   </div>
   <div class="status-info">
-  <h4>Application Status</h4>
-  <p>Currently Under Review</p>
+<h4>Application Status</h4>
+<p>Currently Under Review</p>
   </div>
   </div>
 
   <div class="status-card">
   <div class="status-icon">
-  <i class="fas fa-clock"></i>
+<i class="fas fa-clock"></i>
   </div>
   <div class="status-info">
-  <h4>Next Steps</h4>
-  <p>Review in Progress</p>
+<h4>Next Steps</h4>
+<p>Review in Progress</p>
   </div>
   </div>
 
   <div class="status-card">
   <div class="status-icon">
-  <i class="fas fa-envelope"></i>
+<i class="fas fa-envelope"></i>
   </div>
   <div class="status-info">
-  <h4>Updates</h4>
-  <p>Email Updates</p>
+<h4>Updates</h4>
+<p>Email Updates</p>
   </div>
   </div>
   </div>
 
   <div class="submission-notice">
   <div class="notice-icon">
-  <i class="fas fa-info-circle"></i>
+<i class="fas fa-info-circle"></i>
   </div>
-  <p>We will notify you via email once your application has been reviewed. You may update your application details until the review is complete.</p>
+<p>We will notify you via email once your application has been reviewed. You may update your application details until the review is complete.</p>
   </div>
   </div>
 
