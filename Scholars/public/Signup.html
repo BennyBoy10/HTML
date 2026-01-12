@@ -797,6 +797,10 @@ input, button, select {
   box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.4);
 }
 
+.country-code-and-input-div {
+  
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
@@ -1114,7 +1118,10 @@ gap: 0;
 
   <div class="form-group">
 <label for="phone">Phone Number</label>
-<input type="tel" id="phone-input" data-mask="000 0000 0000" placeholder="080 0000 0000" value="090 2398 9287" required>
+  <div class="country-code-and-input-div">
+<p id="country-code-p">+234 | </p>
+<input type="tel" id="phone-input" data-mask="000 000 000 0000" placeholder="+234 801 234 5678" value="234" required>
+  </div>
   </div>
 
   <div class="form-group">

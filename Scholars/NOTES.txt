@@ -7,6 +7,10 @@ I like Dashboard's footer link arrows
 
 Gallery Pics
 
+Remove Input Placeholders in code
+
+We're a Non Governmental Organization
+
 Create Scholars FB Accounts
 
 Extract phone numbers from emails inboxes.

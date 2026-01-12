@@ -21,6 +21,8 @@
   --danger: #F44336;
   --text-dark: #333;
   --text-light: #666;
+  --text-mid-light: #404040;
+  --text-mid-dark: #DDD;
   --background: #f8f9fa;
   --white: #ffffff;
   --card-bg: #ffffff;
@@ -1775,7 +1777,7 @@ textarea:-webkit-autofill {
   line-height: 1.6;
   margin: 0;
   font-weight: 500;
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -1880,11 +1882,13 @@ textarea:-webkit-autofill {
 }
 
 .purpose-content p {
-  color: var(--text-light);
+  color: var(--text-mid-light);
   font-size: 0.82rem;
   margin: 0;
-  opacity: 0.85;
   line-height: 1.4;
+}
+.dark-theme .purpose-content p {
+  color: var(--text-mid-dark);
 }
 
 .verification-notice {
@@ -2269,8 +2273,8 @@ footer {
 <i class="fas fa-user-graduate"></i>
   </div>
   <div class="user-details">
-<h4 class="user-name" id="sidebarUserName">John Doe</h4>
-<p class="user-email" id="sidebarUserEmail">john.doe@example.com</p>
+<h4 class="user-name" id="sidebarUserName"></h4>
+<p class="user-email" id="sidebarUserEmail"></p>
   </div>
   </div>
   </div>
@@ -2418,7 +2422,7 @@ footer {
   </div>
   <div class="form-group">
 <label for="phone">Phone Number</label>
-<input type="tel" id="phone" data-mask="000 0000 0000" placeholder="080 0000 0000" required>
+<input type="tel" id="phone" data-mask="000 000 000 0000" placeholder="+234 801 234 5678" required>
   </div>
   </div>
 
@@ -2427,7 +2431,7 @@ footer {
 <label for="dob">Date of Birth <span id="age-display" style="font-weight: normal; color: var(--text-light); font-size: 0.9rem;"></span></label>
 <input type="date" id="dob" required>
   <div class="error-message" id="dob-error"></div>
-  <div class="age-info" id="dob-info">Age is within valid range (17-50 years)</div>
+  <div class="age-info" id="dob-info">Age is within valid range (17-40 years)</div>
   </div>
   <div class="form-group">
 <label for="nationality">Nationality</label>
@@ -2478,7 +2482,7 @@ footer {
   </div>
   <div class="header-content">
 <h3 id="application-verification-h">Application Verification</h3>
-<p id="application-verification-p">Applications are verified to confirm they are submitted by real individuals.</p>
+<p id="application-verification-p">Applications are verified due to the increasing number of fake and duplicate submissions.</p>
   </div>
   </div>
 
@@ -2489,8 +2493,8 @@ footer {
   <div class="fee-label">One-Time Fee</div>
   </div>
   <div class="fee-details">
-<p id="fee-details-p">This verification fee is required to complete your application.<br>
-It helps us review only genuine submissions.</p>
+<p id="fee-details-p">In recent years, we have seen a rise in fake and duplicate applications.<br>
+This verification fee helps us review only genuine submissions.</p>
   </div>
   </div>
 
@@ -2546,7 +2550,7 @@ It helps us review only genuine submissions.</p>
 
   <div class="verification-notice">
 <i class="fas fa-info-circle"></i>
-<p id="verification-notice-p"><strong>Important:</strong> This is a one-time verification fee. There are no hidden or additional charges.</p>
+<p id="verification-notice-p"><strong>Important:</strong> This is a one-time verification fee. There are no hidden fees or additional charges.</p>
   </div>
 </div>
 
@@ -3027,7 +3031,7 @@ return {
 };
 }
 
-// Function to validate age (17-50 years)
+// Function to validate age (17-40 years)
 function validateAge(dateOfBirth) {
   console.log("🎂 Validating age for DOB:", dateOfBirth);
   
@@ -3066,16 +3070,16 @@ if (age < 17) {
 };
 }
   
-if (age > 50) {
-  console.log("❌ Age above maximum limit (50)");
+if (age > 40) {
+  console.log("❌ Age above maximum limit (40)");
   return { 
   isValid: false, 
-  message: "Maximum age for application is 50 years",
+  message: "Maximum age for application is 40 years",
   age: age
 };
 }
   
-  console.log("✅ Age is within valid range (17-50)");
+  console.log("✅ Age is within valid range (17-40)");
   return { 
   isValid: true, 
   message: "Age is valid",
@@ -3522,7 +3526,7 @@ const dobValue = document.getElementById('dob').value;
 if (dobValue) {
   const ageValidation = validateAge(dobValue);
 if (!ageValidation.isValid) {
-  console.log(`Age validation failed: ${ageValidation.message}\n\nPlease provide a valid date of birth between 17 and 50 years.`);
+  console.log(`Age validation failed: ${ageValidation.message}\n\nPlease provide a valid date of birth between 17 and 40 years.`);
 
 // Highlight the DOB field
   updateAgeValidation();
