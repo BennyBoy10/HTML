@@ -119,30 +119,31 @@ body{
 </head>
 <body>
 
-  <!-- LOADING ANIMATION -->
+<!-- LOADING ANIMATION -->
   <div class="loader-box" id="loaderBox">
-    <div class="loader"></div>
-    <p class="loading-text">Processing your request...</p>
+  <div class="loader"></div>
+<p class="loading-text">Processing your request...</p>
   </div>
 
-  <!-- RESULT -->
+<!-- RESULT -->
   <div class="result-box" id="resultBox">
-    <div class="checkmark">✔</div>
-    <h1 class="result-title">You're Unsubscribed</h1>
-    <p class="result-desc">
+  <div class="checkmark">✔</div>
+<h1 class="result-title">You're Unsubscribed</h1>
+<p class="result-desc">
 You will no longer receive promotional emails from us.
 Your request has been successfully processed.
-    </p>
+</p>
 
-    <a href="../" class="back-btn">Return Home</a>
+<a href="../" class="back-btn">Return Home</a>
   </div>
 
   <script>
-    // Delay 2 seconds then show success message
-    setTimeout(() => {
-      document.getElementById("loaderBox").style.display = "none";
-      document.getElementById("resultBox").style.display = "block";
-    }, 2000);
+// Delay 2 seconds then show success message
+setTimeout(() => {
+  document.getElementById("loaderBox").style.display = "none";
+  document.getElementById("resultBox").style.display = "block";
+}, 2000);
+
   </script>
 
 </body>

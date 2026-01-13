@@ -1178,10 +1178,10 @@ gap: 10px;
   </div>
   <div class="footer-column">
 <h3>Quick Links</h3>
-<a href="index#about"><i class="fas fa-arrow-right"></i>About Program</a>
-<a href="index#benefits"><i class="fas fa-arrow-right"></i>Scholarship Benefits</a>
-<a href="index#process"><i class="fas fa-arrow-right"></i>Application Process</a>
-<a href="index#faq"><i class="fas fa-arrow-right"></i>FAQ</a>
+<a href="About"><i class="fas fa-arrow-right"></i>About Program</a>
+<a href="Benefits"><i class="fas fa-arrow-right"></i>Scholarship Benefits</a>
+<a href="../#Sponsors"><i class="fas fa-arrow-right"></i>Our Sponsors</a>
+<a href="FAQs"><i class="fas fa-arrow-right"></i>FAQs</a>
   </div>
   <div class="footer-column">
 <h3>Contact Us</h3>
@@ -1389,7 +1389,7 @@ if (response.ok && result.success) {
   localStorage.setItem('GSfield', result.user.field || "");
   localStorage.setItem('GSessay', result.user.essay || "");
   localStorage.setItem("GSpaymentStatus", result.user.paymentStatus || "Pending");
-  localStorage.setItem("GSsubmissionStatus", result.user.submissionStatus || "Pending");
+  localStorage.setItem("GSsubmissionStatus", result.user.submissionStatus || "Not Submitted");
   localStorage.setItem("GSloggedIn", true);
 
 setTimeout(() => {

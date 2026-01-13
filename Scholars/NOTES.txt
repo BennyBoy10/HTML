@@ -1,7 +1,12 @@
 Stop vibe coding
 
-Rework Dashboard Page:
-Verification Required div
+Change Contact Us Footer
+
+Rework Dashboard Page
+
+Rewrite Index fee-explanation texts
+
+Rewrite "This verification fee helps us review only genuine submissions."
 
 I like Dashboard's footer link arrows
 
@@ -44,4 +49,22 @@ Refferals page
 Set age limit; hide green border and texts after setTimeout
 
 if !LoggedIn { Login.html }
+
+
+
+
+
+
+
+
+
+I created the country-code-and-input-div
+I want to make sure the country-code-h and phone-input both stay in the same row regardless of the screen size.
+ Currently if am on a little bit smaller screen the phone-input takes too much space which makes country-code-h bend into another line.
+
+They should both be on the same line regardless of the screen size.
+
+
+No need to rewrite the entire code
+Just write the necessary part I should add or remove so I can copy and paste it.
 

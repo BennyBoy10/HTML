@@ -798,8 +798,16 @@ input, button, select {
 }
 
 .country-code-and-input-div {
-  
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: nowrap; /* Prevents wrapping */
 }
+#country-code-h {
+  flex-shrink: 0; /* Do not allow shrinking */
+  white-space: nowrap; /* Prevent line break */
+}
+
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
@@ -1117,10 +1125,10 @@ gap: 0;
   </div>
 
   <div class="form-group">
-<label for="phone">Phone Number</label>
+<label for="phone-input">Phone Number</label>
   <div class="country-code-and-input-div">
-<p id="country-code-p">+234 | </p>
-<input type="tel" id="phone-input" data-mask="000 000 000 0000" placeholder="+234 801 234 5678" value="234" required>
+<h3 id="country-code-h">+234 | </h3>
+<input type="tel" id="phone-input" data-mask="000 000 0000" placeholder="801 234 5678" required>
   </div>
   </div>
 
@@ -1163,10 +1171,10 @@ gap: 0;
   </div>
   <div class="footer-column">
 <h3>Quick Links</h3>
-<a href="#"><i class="fas fa-arrow-right"></i>About Program</a>
-<a href="#"><i class="fas fa-arrow-right"></i>Scholarship Benefits</a>
-<a href="#"><i class="fas fa-arrow-right"></i>Application Process</a>
-<a href="#"><i class="fas fa-arrow-right"></i>FAQ</a>
+<a href="About"><i class="fas fa-arrow-right"></i>About Program</a>
+<a href="Benefits"><i class="fas fa-arrow-right"></i>Scholarship Benefits</a>
+<a href="../#Sponsors"><i class="fas fa-arrow-right"></i>Our Sponsors</a>
+<a href="FAQs"><i class="fas fa-arrow-right"></i>FAQs</a>
   </div>
   <div class="footer-column">
 <h3>Contact Us</h3>
@@ -1199,14 +1207,15 @@ globalScholars.onclick = () => window.location.href = "../";
 
 
 var phoneInput = document.getElementById("phone-input");
+var countryCode = document.getElementById("country-code-h");
 
-phoneInput.addEventListener("focus", function() {
-if (phoneInput.value.length <= 4) {
-  phoneInput.value = "234";
-}
+phoneInput.addEventListener("input", () => {
+  phoneInput.value = phoneInput.value.replace(/^0+/, "");
+});
+countryCode.addEventListener("click", function() {
+  phoneInput.focus();
 });
 });
-
 
 // Theme toggle functionality
 const themeToggle = document.getElementById('themeToggle');

@@ -803,6 +803,17 @@ textarea:-webkit-autofill {
   -webkit-text-fill-color: var(--text-dark) !important;
 }
 
+.country-code-and-input-div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: nowrap; /* Prevents wrapping */
+}
+#country-code-h {
+  flex-shrink: 0; /* Do not allow shrinking */
+  white-space: nowrap; /* Prevent line break */
+}
+
 #email:disabled {
   opacity: 0.3;
 }
@@ -2362,12 +2373,12 @@ footer {
 <span id="application-form-status" class="status-badge status-incomplete">Not Started</span>
   </div>
   <div class="status-item">
-<span>Payment</span>
-<span id="payment-status-span" class="status-badge status-incomplete">Pending</span>
+<span>Submission</span>
+<span id="submission-status-span" class="status-badge status-incomplete">Not Submitted</span>
   </div>
   <div class="status-item">
-<span>Submission</span>
-<span id="submission-status-span" class="status-badge status-incomplete">Pending</span>
+<span>Payment</span>
+<span id="payment-status-span" class="status-badge status-incomplete">Pending</span>
   </div>
   </div>
   </div>
@@ -2422,7 +2433,10 @@ footer {
   </div>
   <div class="form-group">
 <label for="phone">Phone Number</label>
-<input type="tel" id="phone" data-mask="000 000 000 0000" placeholder="+234 801 234 5678" required>
+  <div class="country-code-and-input-div">
+<h3 id="country-code-h">+234 | </h3>
+<input type="tel" id="phone" minlength="12" data-mask="000 000 0000" placeholder="801 234 5678" required>
+  </div>
   </div>
   </div>
 
@@ -2621,8 +2635,8 @@ This verification fee helps us review only genuine submissions.</p>
 <h3>Quick Links</h3>
 <a href="About"><i class="fas fa-arrow-right"></i>About Program</a>
 <a href="Benefits"><i class="fas fa-arrow-right"></i>Scholarship Benefits</a>
-<a href="About#process"><i class="fas fa-arrow-right"></i>Application Process</a>
-<a href="FAQs"><i class="fas fa-arrow-right"></i>FAQ</a>
+<a href="../#Sponsors"><i class="fas fa-arrow-right"></i>Our Sponsors</a>
+<a href="FAQs"><i class="fas fa-arrow-right"></i>FAQs</a>
   </div>
   <div class="footer-column">
 <h3>Contact Us</h3>
@@ -2818,7 +2832,7 @@ if (window.innerWidth > 768 && isSidebarOpen) {
 
 // Function to fetch user data from MongoDB and update localStorage/form
 async function fetchUserDataFromMongoDB() {
-  console.log("🔄 Starting MongoDB user data fetch...");
+//  console.log("🔄 Starting MongoDB user data fetch...");
   const email = localStorage.getItem('GSemail');
 if (!email) {
   console.log("⚠️ No email found in localStorage, skipping MongoDB fetch");
@@ -2828,7 +2842,7 @@ if (!email) {
   console.log("📧 Fetching data for email:", email);
 
 try {
-  console.log("📤 Sending request to /api/dashboard...");
+//  console.log("📤 Sending request to /api/dashboard...");
 const response = await fetch('/api/dashboard', {
   method: 'POST',
 headers: {
@@ -2837,21 +2851,21 @@ headers: {
   body: JSON.stringify({ email })
 });
 
-  console.log("📥 Received response, status:", response.status);
+//  console.log("📥 Received response, status:", response.status);
 
 if (response.ok) {
   const result = await response.json();
 
 if (result.success && result.data) {
-  console.log("✅ Successfully retrieved user data from MongoDB");
-  console.log("📊 Data received:", result.data);
+//  console.log("✅ Successfully retrieved user data from MongoDB");
+//  console.log("📊 Data received:", result.data);
 
   const userData = result.data;
   let updatesMade = 0;
 
 // Update localStorage and form fields for each data point found
 if (userData.fullName && userData.fullName.trim()) {
-  console.log("🔄 Updating fullName:", userData.fullName);
+//  console.log("🔄 Updating fullName:", userData.fullName);
   localStorage.setItem('GSfullName', userData.fullName);
 
 // Split full name into first and last
@@ -2880,7 +2894,7 @@ if (lastNameInput && !lastNameInput.value.trim()) {
 
 // Update phone
 if (userData.phone && userData.phone.trim()) {
-  console.log("🔄 Updating phone:", userData.phone);
+//  console.log("🔄 Updating phone:", userData.phone);
   localStorage.setItem('GSphone', userData.phone);
   
   const phoneInput = document.getElementById('phone');
@@ -2892,7 +2906,7 @@ if (phoneInput && !phoneInput.value.trim()) {
 
 // Update education
 if (userData.education && userData.education.trim()) {
-  console.log("🔄 Updating education:", userData.education);
+// console.log("🔄 Updating education:", userData.education);
   localStorage.setItem('GSeducation', userData.education);
   
   const educationSelect = document.getElementById('education');
@@ -2904,7 +2918,7 @@ if (educationSelect && !educationSelect.value) {
 
 // Update date of birth
 if (userData.DOB && userData.DOB.trim()) {
-  console.log("🔄 Updating DOB:", userData.DOB);
+// console.log("🔄 Updating DOB:", userData.DOB);
   localStorage.setItem('GSdob', userData.DOB);
 
   const dobInput = document.getElementById('dob');
@@ -2916,7 +2930,7 @@ if (dobInput && !dobInput.value) {
 
 // Update nationality
 if (userData.nationality && userData.nationality.trim()) {
-  console.log("🔄 Updating nationality:", userData.nationality);
+// console.log("🔄 Updating nationality:", userData.nationality);
   localStorage.setItem('GSnationality', userData.nationality);
   
   const nationalitySelect = document.getElementById('nationality');
@@ -2928,7 +2942,7 @@ if (nationalitySelect && !nationalitySelect.value) {
 
 // Update address
 if (userData.address && userData.address.trim()) {
-  console.log("🔄 Updating address:", userData.address);
+// console.log("🔄 Updating address:", userData.address);
   localStorage.setItem('GSaddress', userData.address);
 
   const addressTextarea = document.getElementById('address');
@@ -2940,7 +2954,7 @@ if (addressTextarea && !addressTextarea.value.trim()) {
 
 // Update field/program
 if (userData.program && userData.program.trim()) {
-  console.log("🔄 Updating field/program:", userData.program);
+// console.log("🔄 Updating field/program:", userData.program);
   localStorage.setItem('GSfield', userData.program);
   
   const fieldInput = document.getElementById('field');
@@ -2952,7 +2966,7 @@ if (fieldInput && !fieldInput.value.trim()) {
 
 // Update essay/statement
 if (userData.statement && userData.statement.trim()) {
-  console.log("🔄 Updating essay/statement");
+// console.log("🔄 Updating essay/statement");
   localStorage.setItem('GSessay', userData.statement);
   
   const essayTextarea = document.getElementById('essay');
@@ -2964,14 +2978,14 @@ if (essayTextarea && !essayTextarea.value.trim()) {
 
 // Update payment status
 if (userData.paymentStatus) {
-  console.log("🔄 Updating payment status:", userData.paymentStatus);
+// console.log("🔄 Updating payment status:", userData.paymentStatus);
   localStorage.setItem('GSpaymentStatus', userData.paymentStatus);
   updatePaymentStatus();
 }
 
 // Update submission status
 if (userData.submissionStatus) {
-  console.log("🔄 Updating submission status:", userData.submissionStatus);
+// console.log("🔄 Updating submission status:", userData.submissionStatus);
   localStorage.setItem('GSsubmissionStatus', userData.submissionStatus);
   updateSubmissionStatus();
 }
@@ -2989,17 +3003,17 @@ if (userData.fullName) {
   document.getElementById('userAvatar').textContent = avatarInitials;
 }
 
-  console.log(`✅ MongoDB data fetch complete. Updated ${updatesMade} fields.`);
+// console.log(`✅ MongoDB data fetch complete. Updated ${updatesMade} fields.`);
 
 // Update progress bar after loading data
   updateProgress();
   checkAndUpdatePaymentUI();
 
 } else {
-  console.log("⚠️ MongoDB fetch returned no data or failed:", result.error || "Unknown error");
+// console.log("⚠️ MongoDB fetch returned no data or failed:", result.error || "Unknown error");
 }
 } else {
-  console.log("❌ Failed to fetch from MongoDB, status:", response.status);
+// console.log("❌ Failed to fetch from MongoDB, status:", response.status);
   const errorText = await response.text();
   console.log("❌ Error response:", errorText);
 }
@@ -3027,13 +3041,13 @@ return {
   field: localStorage.getItem('GSfield') || '',
   essay: localStorage.getItem('GSessay') || '',
   paymentStatus: localStorage.getItem('GSpaymentStatus') || 'Pending',
-  submissionStatus: localStorage.getItem('GSsubmissionStatus') || 'Pending'
+  submissionStatus: localStorage.getItem('GSsubmissionStatus') || 'Not Submitted'
 };
 }
 
 // Function to validate age (17-40 years)
 function validateAge(dateOfBirth) {
-  console.log("🎂 Validating age for DOB:", dateOfBirth);
+// console.log("🎂 Validating age for DOB:", dateOfBirth);
   
 if (!dateOfBirth) {
   console.log("⚠️ No DOB provided for validation");
@@ -3048,7 +3062,7 @@ if (isNaN(birthDate.getTime())) {
   console.log("❌ Invalid date format");
   return { isValid: false, message: "Invalid date format" };
 }
-  
+
   // Calculate age
   let age = today.getFullYear() - birthDate.getFullYear();
   const monthDiff = today.getMonth() - birthDate.getMonth();
@@ -3058,7 +3072,7 @@ if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate()))
   age--;
 }
   
-  console.log("📅 Calculated age:", age, "years");
+// console.log("📅 Calculated age:", age, "years");
   
   // Check age limits
 if (age < 17) {
@@ -3079,7 +3093,7 @@ if (age > 40) {
 };
 }
   
-  console.log("✅ Age is within valid range (17-40)");
+// console.log("✅ Age is within valid range (17-40)");
   return { 
   isValid: true, 
   message: "Age is valid",
@@ -3089,7 +3103,7 @@ if (age > 40) {
 
 // Function to show/hide age error
 function updateAgeValidation() {
-  console.log("🔍 Updating age validation...");
+// console.log("🔍 Updating age validation...");
   
   const dobInput = document.getElementById('dob');
   const dobGroup = document.getElementById('dob-group');
@@ -3124,14 +3138,14 @@ if (validation.age !== undefined) {
 if (validation.isValid) {
   ageDisplay.style.color = 'var(--success)';
   ageDisplay.style.fontWeight = '600';
-  console.log("✅ Age is valid, showing success state");
+// console.log("✅ Age is valid, showing success state");
   dobGroup.classList.add('success', 'valid');
   infoElement.style.display = 'block';
   infoElement.textContent = validation.message;
 } else {
   ageDisplay.style.color = 'var(--danger)';
   ageDisplay.style.fontWeight = '600';
-  console.log("❌ Age validation failed, showing error");
+// console.log("❌ Age validation failed, showing error");
   dobGroup.classList.add('error');
   errorElement.style.display = 'block';
   errorElement.textContent = validation.message;
@@ -3147,12 +3161,12 @@ document.addEventListener('DOMContentLoaded', function() {
   dobInput.addEventListener('input', updateAgeValidation);
   dobInput.addEventListener('blur', updateAgeValidation);
   
-  console.log("✅ Age validation listeners added");
+// console.log("✅ Age validation listeners added");
 });
 
 // Load user data from localStorage and MongoDB
 document.addEventListener('DOMContentLoaded', function() {
-  console.log("🚀 Dashboard page loaded, initializing user data...");
+// console.log("🚀 Dashboard page loaded, initializing user data...");
 
 // First, load from localStorage (immediate display)
 var {
@@ -3169,12 +3183,14 @@ var {
   paymentStatus,
   submissionStatus
 } = getLocalStorageData();
-  
-console.log("📦 LocalStorage data loaded:", { 
+
+/*
+ console.log("📦 LocalStorage data loaded:", {
   hasName: !!fullName,
   hasEmail: !!email,
   hasPhone: !!phone 
 });
+*/
 
 // Set initial form values from localStorage
   document.getElementById('userName').textContent = firstName;
@@ -3200,7 +3216,7 @@ if (firstName) {
   (fullName.split(' ')[1] ? fullName.split(' ')[1].charAt(0).toUpperCase() : '');
 }
   
-  console.log("✅ LocalStorage data applied to form");
+// console.log("✅ LocalStorage data applied to form");
   
 // Then, fetch latest data from MongoDB in the background
   console.log("🔄 Starting background MongoDB data sync...");
@@ -3214,13 +3230,13 @@ setTimeout(() => {
   updateSubmissionStatus();
   checkAndUpdatePaymentUI();
   
-  console.log("🎉 Dashboard initialization complete");
+// console.log("🎉 Dashboard initialization complete");
 });
 
 
 // Save form data to localStorage
 function saveFormData() {
-  console.log("💾 Saving form data to localStorage...");
+// console.log("💾 Saving form data to localStorage...");
 
 const formData = {
   firstName: document.getElementById('firstName').value.trim(),
@@ -3260,7 +3276,7 @@ if (formData.essay) localStorage.setItem('GSessay', formData.essay);
   updateProgress();
   updateSubmissionStatus();
 
-  console.log("✅ Form data saved to localStorage");
+// console.log("✅ Form data saved to localStorage");
   return true;
 
 // Update sidebar avatar if it's open
@@ -3322,11 +3338,11 @@ console.log("Application submission failed. Retrying...");
 
 
 function updateSubmissionStatus() {
-  var submissionStatus = localStorage.getItem('GSsubmissionStatus') || 'Pending';
+  var submissionStatus = localStorage.getItem('GSsubmissionStatus') || 'Not Submitted';
   var submissionStatusSpan = document.getElementById("submission-status-span");
 
-if (submissionStatus === "Pending") {
-  submissionStatusSpan.textContent = "Pending";
+if (submissionStatus === "Not Submitted") {
+  submissionStatusSpan.textContent = "Not Submitted";
   submissionStatusSpan.className = "status-badge status-incomplete";
 } else {
   submissionStatusSpan.textContent = "Submitted";
@@ -3555,7 +3571,7 @@ if (!saveFormData()) {
   var formData = getFormData();
 
 try {
-  console.log("📤 Sending application data to backend...");
+// console.log("📤 Sending application data to backend...");
 // Submit application data to backend
 const response = await fetch('/api/application', {
   method: 'POST',
@@ -3730,7 +3746,15 @@ if (paymentStatus === 'Paid') {
 }
 }
 
+var phoneInput = document.getElementById("phone");
+var countryCode = document.getElementById("country-code-h");
 
+phoneInput.addEventListener("input", () => {
+  phoneInput.value = phoneInput.value.replace(/^0+/, "");
+});
+countryCode.addEventListener("click", function() {
+  phoneInput.focus();
+});
 
 // Error state handler
 function showErrorState(loadingOverlay, submitButton, message) {
@@ -3778,7 +3802,7 @@ if (e.target === loadingOverlay) {
 function redirectToPaystack(loadingOverlay, submitButton) {
 var paymentStatus = localStorage.getItem('GSpaymentStatus') || 'Pending';
 if (paymentStatus === "Paid") {
-  console.log("Payment Verified, skipping gateway!");
+// console.log("Payment Verified, skipping gateway!");
   return;
 }
   var Channels = ["card", "bank", "ussd", "bank_transfer", "OPay"];
@@ -3794,7 +3818,7 @@ var handler = PaystackPop.setup({
 
 callback: function (response) {
   savePayment();
-  console.log("✅ Paystack Response:", response);
+// console.log("✅ Paystack Response:", response);
   localStorage.setItem('GSpaymentStatus', 'Paid');
   localStorage.setItem('GSpaymentReference', response.reference);
 // Show success state

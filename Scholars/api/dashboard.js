@@ -61,7 +61,7 @@ const userData = {
   program: user.program || "",
   statement: user.statement || "",
   paymentStatus: user.paymentStatus || "Pending",
-  submissionStatus: user.submissionStatus || "Pending",
+  submissionStatus: user.submissionStatus || "Not Submitted",
   applicationSubmittedAt: user.applicationSubmittedAt || "",
   paymentReference: user.paymentReference || "",
   updatedAt: user.updatedAt || ""
