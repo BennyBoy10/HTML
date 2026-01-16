@@ -1,7 +1,5 @@
 Stop vibe coding
 
-Change Contact Us Footer
-
 Rework Dashboard Page
 
 Rewrite Index fee-explanation texts
